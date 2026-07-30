@@ -1,0 +1,109 @@
+import Link from "next/link";
+
+const nav = [
+  { href: "/competition", label: "2027 Challenge" },
+  { href: "/#roadmap", label: "Roadmap" },
+  { href: "/sponsors", label: "Sponsors" },
+  { href: "/#about", label: "About" },
+];
+
+export function SiteHeader() {
+  return (
+    <header className="site-header">
+      <div className="container header-inner">
+        <Link href="/" className="brand" aria-label="CHRC home">
+          <img
+            src="/images/chrc-logo.jpeg"
+            alt=""
+            width={46}
+            height={46}
+            className="brand-mark"
+          />
+          <span className="brand-type">
+            <strong>CHRC</strong>
+            <small>Canadian Humanoid Robotics Competition</small>
+          </span>
+        </Link>
+        <nav className="desktop-nav" aria-label="Primary navigation">
+          {nav.map((item) => (
+            <Link href={item.href} key={item.href}>
+              {item.label}
+            </Link>
+          ))}
+        </nav>
+        <Link href="/start-a-team" className="button button-primary header-cta">
+          Start a team <span aria-hidden="true">↗</span>
+        </Link>
+        <details className="mobile-menu">
+          <summary aria-label="Open navigation">
+            <span />
+            <span />
+          </summary>
+          <nav aria-label="Mobile navigation">
+            {nav.map((item) => (
+              <Link href={item.href} key={item.href}>
+                {item.label}
+              </Link>
+            ))}
+            <Link href="/start-a-team">Start a team ↗</Link>
+          </nav>
+        </details>
+      </div>
+    </header>
+  );
+}
+
+export function SiteFooter() {
+  return (
+    <footer className="site-footer">
+      <div className="container footer-grid">
+        <div>
+          <Link href="/" className="brand footer-brand">
+            <img
+              src="/images/chrc-logo.jpeg"
+              alt=""
+              width={52}
+              height={52}
+              className="brand-mark"
+            />
+            <span className="brand-type">
+              <strong>CHRC</strong>
+              <small>The future is built here.</small>
+            </span>
+          </Link>
+          <p className="footer-note">
+            Canada&apos;s first university-exclusive humanoid robotics
+            competition.
+          </p>
+        </div>
+        <div className="footer-links">
+          <p>Explore</p>
+          <Link href="/competition">2027 Challenge</Link>
+          <Link href="/#roadmap">2030 Roadmap</Link>
+          <Link href="/start-a-team">Start a team</Link>
+          <Link href="/sponsors">Sponsors</Link>
+        </div>
+        <div className="footer-links">
+          <p>Connect</p>
+          <a href="mailto:canadianhumanoidroboticscomp@gmail.com">
+            Email the team
+          </a>
+          <a
+            href="https://www.instagram.com/chrcompetition"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Instagram
+          </a>
+          <a href="/CHRC-sponsorship-package-2026-27.pdf" download>
+            Sponsorship package
+          </a>
+        </div>
+      </div>
+      <div className="container footer-bottom">
+        <span>© 2026 Canadian Humanoid Robotics Competition</span>
+        <span>Built in Canada for the next generation of roboticists.</span>
+      </div>
+    </footer>
+  );
+}
