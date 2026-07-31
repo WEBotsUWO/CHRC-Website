@@ -6,28 +6,32 @@ const roadmap = [
     phase: "Dexterity",
     title: "The hand",
     copy: "Teams receive a standardized arm and focus their engineering on sensing, grasping, actuation, and control.",
-    position: "8%",
+    image: "/images/season-2027-hand.png",
+    alt: "A standalone articulated humanoid hand mounted to a standardized robotic forearm",
   },
   {
     year: "2028",
     phase: "Integration",
     title: "The upper body",
     copy: "Two arms, a torso, perception, and systems that have to work together.",
-    position: "36%",
+    image: "/images/season-2028-upper-body.png",
+    alt: "A standalone humanoid upper-body assembly with a torso, two arms, and two hands",
   },
   {
     year: "2029",
     phase: "Mobility",
     title: "The biped",
     copy: "Balance and locomotion bring the competition onto its feet.",
-    position: "65%",
+    image: "/images/season-2029-biped.png",
+    alt: "A standalone robotic biped test platform with a pelvis, two articulated legs, and two feet",
   },
   {
     year: "2030",
     phase: "Full system",
     title: "The humanoid",
     copy: "A complete humanoid competition with integrated, autonomous systems.",
-    position: "94%",
+    image: "/images/season-2030-humanoid.png",
+    alt: "A complete humanoid robot standing naturally in a university robotics laboratory",
   },
 ];
 
@@ -37,7 +41,7 @@ export default function Home() {
       <section className="hero">
         <div className="hero-image-wrap" aria-hidden="true">
           <img
-            src="/images/chrc-hero-v2.png"
+            src="/images/chrc-hero-v3.png"
             alt=""
             className="hero-image"
           />
@@ -86,27 +90,13 @@ export default function Home() {
               from the start.
             </p>
           </div>
-          <div className="roadmap-render">
-            <img
-              src="/images/roadmap-evolution-v2.png"
-              alt="Four stages of a humanoid robot progressing from a robotic hand and arm to a full humanoid"
-              className="roadmap-render-image"
-            />
-            <span className="roadmap-render-caption">
-              Four seasons. One progressively integrated platform.
-            </span>
-          </div>
           <div className="timeline">
             {roadmap.map((item, index) => (
               <article className="timeline-item" key={item.year}>
-                <div
-                  className="timeline-crop"
-                  style={{ "--crop-position": item.position } as React.CSSProperties}
-                >
+                <div className="timeline-visual">
                   <img
-                    src="/images/roadmap-evolution-v2.png"
-                    alt=""
-                    aria-hidden="true"
+                    src={item.image}
+                    alt={item.alt}
                   />
                 </div>
                 <div className="timeline-index">0{index + 1}</div>

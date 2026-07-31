@@ -31,6 +31,11 @@ test("ships the revised CHRC conversion experience", async () => {
   assert.match(home, /Canadian Humanoid Robotics Competition/);
   assert.match(home, /CHRC 2027 - sign up/);
   assert.match(home, /Every season adds a system/);
+  assert.match(home, /season-2027-hand\.png/);
+  assert.match(home, /season-2028-upper-body\.png/);
+  assert.match(home, /season-2029-biped\.png/);
+  assert.match(home, /season-2030-humanoid\.png/);
+  assert.doesNotMatch(home, /roadmap-evolution/);
   assert.match(home, /Humanoid Hand Competition/);
   assert.match(home, /Join the movement/);
   assert.match(form, /One student is enough to begin/);
@@ -53,8 +58,11 @@ test("removes starter-only code and keeps required assets", async () => {
   assert.doesNotMatch(packageJson, /react-loading-skeleton/);
   await assert.rejects(access(new URL("app/_sites-preview", root)));
   await Promise.all([
-    access(new URL("public/images/chrc-hero-v2.png", root)),
-    access(new URL("public/images/roadmap-evolution-v2.png", root)),
+    access(new URL("public/images/chrc-hero-v3.png", root)),
+    access(new URL("public/images/season-2027-hand.png", root)),
+    access(new URL("public/images/season-2028-upper-body.png", root)),
+    access(new URL("public/images/season-2029-biped.png", root)),
+    access(new URL("public/images/season-2030-humanoid.png", root)),
     access(new URL("public/images/hand-competition.png", root)),
     access(new URL("public/images/sponsor-hardware.png", root)),
     access(new URL("public/og.png", root)),

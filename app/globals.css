@@ -596,22 +596,26 @@ textarea:focus-visible {
   box-shadow: 0 0 0 6px rgba(255, 255, 255, 0.08);
 }
 
-.timeline-crop {
+.timeline-visual {
   position: relative;
-  height: 128px;
+  aspect-ratio: 3 / 2;
   margin: 0 0 24px;
   overflow: hidden;
-  border-radius: 5px;
-  background: #eee;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 6px;
+  background: #e7e5e1;
 }
 
-.timeline-crop img {
-  position: absolute;
-  inset: 0;
+.timeline-visual img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: var(--crop-position) center;
+  object-position: center;
+  transition: transform 320ms ease;
+}
+
+.timeline-item:hover .timeline-visual img {
+  transform: scale(1.035);
 }
 
 .timeline-index {
@@ -2444,8 +2448,8 @@ textarea:focus-visible {
     left: 2px;
   }
 
-  .timeline-crop {
-    height: 190px;
+  .timeline-visual {
+    max-width: 520px;
     margin-top: 8px;
   }
 
