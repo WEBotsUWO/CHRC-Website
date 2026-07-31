@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 const nav = [
-  { href: "/competition", label: "2027 Challenge" },
+  { href: "/competition", label: "CHRC 2027" },
   { href: "/#roadmap", label: "Roadmap" },
   { href: "/sponsors", label: "Sponsors" },
   { href: "/#about", label: "About" },
@@ -32,7 +32,7 @@ export function SiteHeader() {
           ))}
         </nav>
         <Link href="/start-a-team" className="button button-primary header-cta">
-          Start a team <span aria-hidden="true">↗</span>
+          Start a team
         </Link>
         <details className="mobile-menu">
           <summary aria-label="Open navigation">
@@ -45,7 +45,8 @@ export function SiteHeader() {
                 {item.label}
               </Link>
             ))}
-            <Link href="/start-a-team">Start a team ↗</Link>
+            <Link href="/competition-signup">CHRC 2027 - sign up</Link>
+            <Link href="/start-a-team">Start a team</Link>
           </nav>
         </details>
       </div>
@@ -68,7 +69,7 @@ export function SiteFooter() {
             />
             <span className="brand-type">
               <strong>CHRC</strong>
-              <small>The future is built here.</small>
+              <small>University teams. Humanoid systems.</small>
             </span>
           </Link>
           <p className="footer-note">
@@ -78,9 +79,10 @@ export function SiteFooter() {
         </div>
         <div className="footer-links">
           <p>Explore</p>
-          <Link href="/competition">2027 Challenge</Link>
+          <Link href="/competition">CHRC 2027</Link>
           <Link href="/#roadmap">2030 Roadmap</Link>
           <Link href="/start-a-team">Start a team</Link>
+          <Link href="/competition-signup">Competition sign up</Link>
           <Link href="/sponsors">Sponsors</Link>
         </div>
         <div className="footer-links">
@@ -102,7 +104,7 @@ export function SiteFooter() {
       </div>
       <div className="container footer-bottom">
         <span>© 2026 Canadian Humanoid Robotics Competition</span>
-        <span>Built in Canada for the next generation of roboticists.</span>
+        <span>University-exclusive competition for humanoid robotics.</span>
       </div>
     </footer>
   );

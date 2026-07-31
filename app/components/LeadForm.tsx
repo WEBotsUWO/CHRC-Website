@@ -64,12 +64,12 @@ export function LeadForm() {
   if (state === "success") {
     return (
       <div className="form-success" role="status">
-        <span className="success-mark">✓</span>
-        <p className="section-label">You&apos;re on the map</p>
-        <h2>Let&apos;s build your team.</h2>
+        <span className="success-mark" aria-hidden="true" />
+        <p className="section-label">Submission received</p>
+        <h2>Thanks. We received your information.</h2>
         <p>
-          We have your details. A CHRC organizer will reach out to help you plan
-          your first campus meeting and next steps.
+          A CHRC organizer will reach out to help you plan your first campus
+          meeting and next steps.
         </p>
         <button
           type="button"
@@ -85,11 +85,11 @@ export function LeadForm() {
   return (
     <form className="lead-form" onSubmit={submit}>
       <div className="form-heading">
-        <p className="section-label">Tell us where you&apos;re starting</p>
-        <h2>Put your university on the CHRC map.</h2>
+        <p className="section-label">Start a team</p>
+        <h2>Join the movement.</h2>
         <p>
-          One person is enough to begin. We&apos;ll meet you where you are and
-          help turn interest into a team.
+          Tell us about your university, your current team size, and where you
+          are starting. One person is enough to submit.
         </p>
       </div>
 
@@ -134,10 +134,10 @@ export function LeadForm() {
           <span>Expected team size *</span>
           <select name="teamSize" required defaultValue="">
             <option value="" disabled>Select a range</option>
-            <option value="just-me">Just me—for now</option>
-            <option value="2-5">2–5 people</option>
-            <option value="6-10">6–10 people</option>
-            <option value="11-20">11–20 people</option>
+            <option value="just-me">Just me for now</option>
+            <option value="2-5">2 to 5 people</option>
+            <option value="6-10">6 to 10 people</option>
+            <option value="11-20">11 to 20 people</option>
             <option value="20+">20+ people</option>
           </select>
         </label>
@@ -219,7 +219,7 @@ export function LeadForm() {
         className="button button-primary submit-button"
         disabled={state === "sending"}
       >
-        {state === "sending" ? "Sending…" : "Help me start a team ↗"}
+        {state === "sending" ? "Sending..." : "Submit team interest"}
       </button>
     </form>
   );

@@ -1,0 +1,45 @@
+import type { Metadata } from "next";
+import { CompetitionRegistrationForm } from "../components/CompetitionRegistrationForm";
+
+export const metadata: Metadata = {
+  title: "CHRC 2027 Sign Up",
+  description:
+    "Register your university team's interest in the CHRC 2027 Humanoid Hand Competition.",
+};
+
+export default function CompetitionSignupPage() {
+  return (
+    <section className="form-section competition-signup-page">
+      <div className="container form-layout">
+        <aside className="form-aside">
+          <div className="signup-hand-visual" aria-hidden="true">
+            <img src="/images/hand-competition.png" alt="" />
+          </div>
+          <p className="section-label light-label">Competition registration</p>
+          <h2>CHRC 2027 is for university teams.</h2>
+          <p className="form-aside-copy">
+            Submit your team&apos;s information to receive registration updates
+            and the competition package when it is released.
+          </p>
+          <div className="registration-facts">
+            <div>
+              <span>System</span>
+              <strong>Humanoid hand</strong>
+            </div>
+            <div>
+              <span>Target date</span>
+              <strong>May 15, 2027</strong>
+            </div>
+            <div>
+              <span>Arm platform</span>
+              <strong>Standardized and supplied</strong>
+            </div>
+          </div>
+        </aside>
+        <div className="form-panel">
+          <CompetitionRegistrationForm />
+        </div>
+      </div>
+    </section>
+  );
+}

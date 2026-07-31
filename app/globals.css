@@ -1,9 +1,9 @@
 @import "tailwindcss";
 
 :root {
-  --red: #c8102e;
-  --red-dark: #9f0b23;
-  --red-soft: #f8e9ec;
+  --red: #8b2e3f;
+  --red-dark: #6f2131;
+  --red-soft: #f3e8eb;
   --ink: #14161a;
   --muted: #646a73;
   --line: #e7e5e2;
@@ -156,16 +156,18 @@ img {
 }
 
 .button {
+  position: relative;
   display: inline-flex;
-  min-height: 48px;
+  min-height: 54px;
   align-items: center;
   justify-content: center;
-  gap: 22px;
+  gap: 20px;
+  overflow: hidden;
   border: 1px solid transparent;
   border-radius: 4px;
-  padding: 0 20px;
+  padding: 0 24px;
   cursor: pointer;
-  font-size: 0.88rem;
+  font-size: 0.9rem;
   font-weight: 690;
   line-height: 1;
   transition:
@@ -175,8 +177,25 @@ img {
     color 180ms ease;
 }
 
+.button::after {
+  width: 18px;
+  height: 8px;
+  content: "";
+  transform: skewX(-38deg);
+  border-right: 1px solid currentColor;
+  border-bottom: 1px solid currentColor;
+  transition:
+    width 180ms ease,
+    transform 180ms ease;
+}
+
 .button:hover {
   transform: translateY(-2px);
+}
+
+.button:hover::after {
+  width: 27px;
+  transform: translateX(2px) skewX(-38deg);
 }
 
 .button:focus-visible,
@@ -185,7 +204,7 @@ summary:focus-visible,
 input:focus-visible,
 select:focus-visible,
 textarea:focus-visible {
-  outline: 3px solid rgba(200, 16, 46, 0.28);
+  outline: 3px solid rgba(139, 46, 63, 0.28);
   outline-offset: 3px;
 }
 
@@ -238,7 +257,7 @@ textarea:focus-visible {
   min-height: 830px;
   overflow: hidden;
   padding-top: 76px;
-  background: #f7f5f2;
+  background: #f5f2ee;
 }
 
 .hero::after {
@@ -308,7 +327,7 @@ textarea:focus-visible {
   height: 7px;
   border-radius: 50%;
   background: var(--red);
-  box-shadow: 0 0 0 5px rgba(200, 16, 46, 0.1);
+  box-shadow: 0 0 0 5px rgba(139, 46, 63, 0.1);
 }
 
 .hero-kicker {
@@ -404,7 +423,6 @@ textarea:focus-visible {
 }
 
 .section-intro h2,
-.challenge-grid h2,
 .who-grid h2,
 .tier-heading h2,
 .in-kind-grid h2,
@@ -550,7 +568,7 @@ textarea:focus-visible {
 
 .timeline {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   margin-top: 72px;
   border-top: 1px solid rgba(255, 255, 255, 0.22);
 }
@@ -718,7 +736,7 @@ textarea:focus-visible {
   justify-content: space-between;
   padding: 48px;
   background:
-    radial-gradient(circle at 100% 0, rgba(200, 16, 46, 0.08), transparent 30%),
+    radial-gradient(circle at 100% 0, rgba(139, 46, 63, 0.08), transparent 30%),
     #fff;
 }
 
@@ -892,6 +910,10 @@ textarea:focus-visible {
   text-align: center;
 }
 
+.final-cta .hero-actions {
+  justify-content: center;
+}
+
 .final-cta h2 {
   margin: 0;
   font-size: clamp(4rem, 8vw, 8rem);
@@ -982,7 +1004,7 @@ textarea:focus-visible {
 .subpage-hero {
   padding: 190px 0 105px;
   background:
-    radial-gradient(circle at 88% 10%, rgba(200, 16, 46, 0.09), transparent 25%),
+    radial-gradient(circle at 88% 10%, rgba(139, 46, 63, 0.09), transparent 25%),
     linear-gradient(#fff, #f7f5f2);
 }
 
@@ -1057,7 +1079,7 @@ textarea:focus-visible {
 }
 
 .form-section {
-  padding: 100px 0;
+  padding: 160px 0 100px;
   color: #fff;
   background:
     linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
@@ -1080,6 +1102,62 @@ textarea:focus-visible {
 
 .form-aside h2 {
   font-size: clamp(2.6rem, 4vw, 4.4rem);
+}
+
+.form-aside-copy {
+  margin: 24px 0 0;
+  color: #aeb1b6;
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+.team-form-graphic {
+  position: relative;
+  width: 100%;
+  height: 150px;
+  margin-bottom: 38px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+.team-form-graphic::before {
+  position: absolute;
+  top: 50%;
+  right: 28px;
+  left: 28px;
+  height: 1px;
+  content: "";
+  background: rgba(255, 255, 255, 0.18);
+}
+
+.team-form-graphic span {
+  position: absolute;
+  top: 50%;
+  width: 20px;
+  height: 20px;
+  transform: translate(-50%, -50%);
+  border: 1px solid rgba(255, 255, 255, 0.34);
+  border-radius: 50%;
+  background: var(--dark);
+  box-shadow: 0 0 0 7px rgba(255, 255, 255, 0.04);
+}
+
+.team-form-graphic span:nth-child(1) {
+  left: 19%;
+}
+
+.team-form-graphic span:nth-child(2) {
+  left: 50%;
+  border-color: var(--red);
+  box-shadow: 0 0 0 7px rgba(139, 46, 63, 0.16);
+}
+
+.team-form-graphic span:nth-child(3) {
+  left: 81%;
 }
 
 .support-list {
@@ -1395,8 +1473,72 @@ textarea:focus-visible {
   font-size: 1.4rem;
 }
 
+.success-mark::after {
+  width: 12px;
+  height: 23px;
+  content: "";
+  transform: translateY(-2px) rotate(45deg);
+  border-right: 2px solid #fff;
+  border-bottom: 2px solid #fff;
+}
+
 .form-success .button {
   margin-top: 32px;
+}
+
+.competition-signup-page {
+  min-height: 100vh;
+}
+
+.signup-hand-visual {
+  position: relative;
+  height: 230px;
+  margin-bottom: 38px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 4px;
+  background: #e9e9e7;
+}
+
+.signup-hand-visual::after {
+  position: absolute;
+  inset: 0;
+  content: "";
+  background: linear-gradient(0deg, rgba(23, 24, 27, 0.38), transparent 50%);
+}
+
+.signup-hand-visual img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 56% center;
+}
+
+.registration-facts {
+  margin-top: 40px;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.registration-facts div {
+  display: grid;
+  grid-template-columns: 115px 1fr;
+  gap: 14px;
+  padding: 17px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.registration-facts span {
+  color: #777b82;
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.registration-facts strong {
+  color: #d9dade;
+  font-size: 0.82rem;
+  font-weight: 620;
 }
 
 .faq-section {
@@ -1585,19 +1727,6 @@ textarea:focus-visible {
   line-height: 1.5;
 }
 
-.challenge-grid {
-  display: grid;
-  grid-template-columns: 1fr 0.85fr;
-  gap: 120px;
-}
-
-.challenge-copy p {
-  margin: 0 0 20px;
-  color: var(--muted);
-  font-size: 1rem;
-  line-height: 1.72;
-}
-
 .capability-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -1752,63 +1881,91 @@ textarea:focus-visible {
   color: rgba(255, 255, 255, 0.78);
 }
 
+.competition-package {
+  padding: 115px 0 125px;
+  border-top: 1px solid var(--line);
+  background: var(--paper);
+}
+
+.competition-package-inner {
+  text-align: center;
+}
+
+.competition-package h2 {
+  max-width: 900px;
+  margin: 0 auto;
+  font-size: clamp(3rem, 6vw, 6.5rem);
+  font-weight: 710;
+  letter-spacing: -0.065em;
+  line-height: 0.96;
+}
+
+.competition-package p:last-child {
+  max-width: 620px;
+  margin: 28px auto 0;
+  color: var(--muted);
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
 /* Sponsors */
 .sponsor-hero {
   position: relative;
+  min-height: 820px;
   overflow: hidden;
-  padding: 185px 0 0;
-  color: #fff;
-  background:
-    radial-gradient(circle at 85% 20%, rgba(255, 255, 255, 0.13), transparent 29%),
-    linear-gradient(125deg, #a70d27, var(--red));
+  padding: 76px 0 0;
+  color: var(--ink);
+  background: #f5f2ee;
 }
 
-.sponsor-hero::before {
+.sponsor-hero::after {
   position: absolute;
-  top: 80px;
-  right: -120px;
-  width: 560px;
-  height: 560px;
+  z-index: 1;
+  inset: 76px 0 0;
   content: "";
-  transform: rotate(45deg);
-  border: 1px solid rgba(255, 255, 255, 0.14);
+  pointer-events: none;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.99) 0%,
+    rgba(255, 255, 255, 0.95) 38%,
+    rgba(255, 255, 255, 0.12) 72%,
+    transparent
+  );
+}
+
+.sponsor-hero-art {
+  position: absolute;
+  inset: 76px 0 0;
+}
+
+.sponsor-hero-art img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
 }
 
 .sponsor-hero-grid {
   position: relative;
-  z-index: 1;
+  z-index: 2;
   display: grid;
-  grid-template-columns: 1.05fr 0.62fr;
-  align-items: end;
-  gap: 110px;
-  padding-bottom: 105px;
+  min-height: 744px;
+  grid-template-columns: minmax(0, 660px) 1fr;
+  align-items: center;
+  padding-bottom: 55px;
 }
 
 .sponsor-hero h1 {
-  font-size: clamp(4rem, 7vw, 7.7rem);
+  max-width: 640px;
+  font-size: clamp(4.2rem, 7vw, 7.4rem);
 }
 
-.sponsor-hero-grid > div:last-child > p {
-  margin: 0;
-  color: rgba(255, 255, 255, 0.8);
+.sponsor-hero-grid > div > p:not(.section-label) {
+  max-width: 560px;
+  margin: 26px 0 0;
+  color: var(--muted);
   font-size: 1.04rem;
   line-height: 1.68;
-}
-
-.sponsor-marquee {
-  display: flex;
-  width: max-content;
-  border-top: 1px solid rgba(255, 255, 255, 0.18);
-  padding: 18px 0 19px;
-  color: rgba(255, 255, 255, 0.36);
-  font-family: var(--font-mono);
-  font-size: 0.66rem;
-  letter-spacing: 0.16em;
-}
-
-.sponsor-marquee span {
-  min-width: 100vw;
-  text-align: center;
 }
 
 .value-grid {
@@ -1867,7 +2024,7 @@ textarea:focus-visible {
   color: #fff;
   border-color: #25272b;
   background:
-    radial-gradient(circle at 100% 0, rgba(200, 16, 46, 0.22), transparent 35%),
+    radial-gradient(circle at 100% 0, rgba(139, 46, 63, 0.22), transparent 35%),
     #181a1e;
 }
 
@@ -1909,20 +2066,26 @@ textarea:focus-visible {
 }
 
 .tier-card li {
-  display: grid;
-  grid-template-columns: 16px 1fr;
-  gap: 9px;
+  position: relative;
+  padding-left: 18px;
   color: #5d6269;
   font-size: 0.82rem;
   line-height: 1.45;
 }
 
-.tier-diamond li {
-  color: #bec1c6;
+.tier-card li::before {
+  position: absolute;
+  top: 0.55em;
+  left: 0;
+  width: 6px;
+  height: 6px;
+  content: "";
+  border-radius: 50%;
+  background: var(--red);
 }
 
-.tier-card li span {
-  color: var(--red);
+.tier-diamond li {
+  color: #bec1c6;
 }
 
 .tier-link {
@@ -1935,6 +2098,14 @@ textarea:focus-visible {
   color: var(--red);
   font-size: 0.83rem;
   font-weight: 700;
+  transition:
+    color 180ms ease,
+    padding-left 180ms ease;
+}
+
+.tier-link:hover {
+  padding-left: 6px;
+  color: var(--red-dark);
 }
 
 .tier-diamond .tier-link {
@@ -2079,14 +2250,14 @@ textarea:focus-visible {
   }
 
   .timeline {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
   }
 
-  .timeline-item:nth-child(3) {
+  .timeline-item:nth-child(2) {
     border-right: 0;
   }
 
-  .timeline-item:nth-child(n + 4) {
+  .timeline-item:nth-child(n + 3) {
     border-top: 1px solid rgba(255, 255, 255, 0.13);
   }
 
@@ -2201,7 +2372,6 @@ textarea:focus-visible {
   .split-intro,
   .roadmap-heading,
   .subpage-hero-grid,
-  .challenge-grid,
   .who-grid,
   .tier-heading,
   .in-kind-grid,
@@ -2212,7 +2382,6 @@ textarea:focus-visible {
   }
 
   .section-intro h2,
-  .challenge-grid h2,
   .who-grid h2,
   .tier-heading h2,
   .in-kind-grid h2,
@@ -2262,8 +2431,8 @@ textarea:focus-visible {
   }
 
   .timeline-item,
-  .timeline-item:nth-child(3),
-  .timeline-item:nth-child(n + 4) {
+  .timeline-item:nth-child(2),
+  .timeline-item:nth-child(n + 3) {
     min-height: auto;
     padding: 30px 0 32px;
     border-top: 0;
@@ -2354,7 +2523,7 @@ textarea:focus-visible {
   }
 
   .form-section {
-    padding: 70px 0;
+    padding: 115px 0 70px;
   }
 
   .form-aside {
@@ -2454,11 +2623,25 @@ textarea:focus-visible {
   }
 
   .sponsor-hero {
-    padding-top: 145px;
+    min-height: auto;
+    padding-top: 68px;
+  }
+
+  .sponsor-hero-art {
+    position: relative;
+    inset: auto;
+    height: 390px;
+  }
+
+  .sponsor-hero::after {
+    inset: 68px 0 auto;
+    height: 390px;
+    background: linear-gradient(0deg, #fff 0%, transparent 48%);
   }
 
   .sponsor-hero-grid {
-    padding-bottom: 80px;
+    min-height: auto;
+    padding: 40px 0 80px;
   }
 
   .tier-section,

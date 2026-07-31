@@ -15,3 +15,21 @@ export const teamLeads = sqliteTable("team_leads", {
   consent: integer("consent", { mode: "boolean" }).notNull().default(true),
   createdAt: text("created_at").notNull().default(sql`CURRENT_TIMESTAMP`),
 });
+
+export const competitionRegistrations = sqliteTable(
+  "competition_registrations",
+  {
+    id: text("id").primaryKey(),
+    teamName: text("team_name").notNull(),
+    university: text("university").notNull(),
+    contactName: text("contact_name").notNull(),
+    email: text("email").notNull(),
+    phone: text("phone"),
+    facultyAdvisor: text("faculty_advisor"),
+    teamSize: text("team_size").notNull(),
+    teamStatus: text("team_status").notNull(),
+    notes: text("notes").notNull().default(""),
+    consent: integer("consent", { mode: "boolean" }).notNull().default(true),
+    createdAt: text("created_at").notNull().default(sql`CURRENT_TIMESTAMP`),
+  }
+);

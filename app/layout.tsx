@@ -31,13 +31,13 @@ export async function generateMetadata(): Promise<Metadata> {
       template: "%s | CHRC",
     },
     description:
-      "Canada's first university-exclusive humanoid robotics competition. Start a team, build ambitious systems, and help shape the road to 2030.",
+      "Canada's first university-exclusive humanoid robotics competition, progressing from a humanoid hand in 2027 to a full humanoid event by 2030.",
     icons: {
       icon: "/images/chrc-logo.jpeg",
       shortcut: "/images/chrc-logo.jpeg",
     },
     openGraph: {
-      title: "CHRC | The future is built here",
+      title: "CHRC | Canadian Humanoid Robotics Competition",
       description:
         "Join Canada's first university-exclusive humanoid robotics competition.",
       type: "website",
@@ -52,7 +52,7 @@ export async function generateMetadata(): Promise<Metadata> {
     },
     twitter: {
       card: "summary_large_image",
-      title: "CHRC | The future is built here",
+      title: "CHRC | Canadian Humanoid Robotics Competition",
       description:
         "Join Canada's first university-exclusive humanoid robotics competition.",
       images: ["/og.png"],

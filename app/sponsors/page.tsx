@@ -1,10 +1,9 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Sponsors",
   description:
-    "Help launch Canada's first university humanoid robotics competition and connect with the next generation of robotics talent.",
+    "Review CHRC sponsorship levels, fund uses, benefits, and in-kind contribution opportunities for the inaugural 2027 competition.",
 };
 
 const tiers = [
@@ -18,24 +17,24 @@ const tiers = [
       "Welcome address at the opening ceremony",
       "Present awards to competition winners",
       "Introduce your organization to participants",
-      "Dedicated social media thank-you",
+      "Dedicated social media recognition",
     ],
   },
   {
     name: "Gold",
-    price: "$500–$1,000",
+    price: "$500 to $1,000",
     className: "tier-gold",
     benefits: [
       "Large logo placement on materials and merchandise",
       "Exhibitor booth at the competition",
       "Introduce your organization to participants",
       "Event-space banners and posters",
-      "Dedicated social media thank-you",
+      "Dedicated social media recognition",
     ],
   },
   {
     name: "Silver",
-    price: "$200–$500",
+    price: "$200 to $500",
     className: "tier-silver",
     benefits: [
       "Medium logo placement on event materials",
@@ -45,7 +44,7 @@ const tiers = [
   },
   {
     name: "Bronze",
-    price: "$100–$200",
+    price: "$100 to $200",
     className: "tier-bronze",
     benefits: [
       "Logo placement on event materials",
@@ -58,37 +57,33 @@ export default function SponsorsPage() {
   return (
     <>
       <section className="sponsor-hero">
+        <div className="sponsor-hero-art" aria-hidden="true">
+          <img src="/images/sponsor-hardware.png" alt="" />
+        </div>
         <div className="container sponsor-hero-grid">
           <div>
-            <p className="section-label light-label">Partner with CHRC</p>
-            <h1>Back the people who will build what&apos;s next.</h1>
-          </div>
-          <div>
+            <p className="section-label">Sponsorship 2026-27</p>
+            <h1>Sponsor CHRC 2027.</h1>
             <p>
-              Your support helps launch Canada&apos;s first university
-              humanoid robotics competition—and puts your organization beside
-              the multidisciplinary students moving the field forward.
+              Sponsorship funds competition equipment, event operations, and
+              student awards for the inaugural university competition.
             </p>
             <div className="hero-actions">
               <a
-                href="mailto:canadianhumanoidroboticscomp@gmail.com?subject=CHRC%20Sponsorship"
-                className="button button-white"
+                href="mailto:canadianhumanoidroboticscomp@gmail.com?subject=CHRC%20Sponsorship%20Information"
+                className="button button-primary"
               >
-                Become a sponsor <span aria-hidden="true">↗</span>
+                Request sponsor information
               </a>
               <a
                 href="/CHRC-sponsorship-package-2026-27.pdf"
                 download
-                className="button button-outline-white"
+                className="button button-quiet"
               >
-                Download package ↓
+                Download sponsorship package
               </a>
             </div>
           </div>
-        </div>
-        <div className="sponsor-marquee" aria-hidden="true">
-          <span>INDUSTRY × UNIVERSITY × THE FUTURE OF ROBOTICS</span>
-          <span>INDUSTRY × UNIVERSITY × THE FUTURE OF ROBOTICS</span>
         </div>
       </section>
 
@@ -96,38 +91,37 @@ export default function SponsorsPage() {
         <div className="container">
           <div className="section-intro split-intro">
             <div>
-              <p className="section-label">Why CHRC</p>
-              <h2>Early support creates lasting impact.</h2>
+              <p className="section-label">Use of funds</p>
+              <h2>Where sponsorship funding goes.</h2>
             </div>
             <p className="section-copy">
-              Sponsors become part of the inaugural story. Funding goes directly
-              toward competition materials, prizes, event logistics, and an
-              accessible experience for student teams across Canada.
+              Contributions support the shared equipment and event
+              infrastructure required to run CHRC 2027 for university teams.
             </p>
           </div>
           <div className="value-grid">
             <article>
               <span>01</span>
-              <h3>Meet emerging talent</h3>
+              <h3>Competition equipment</h3>
               <p>
-                Connect with motivated mechanical, electrical, software,
-                controls, and systems students.
+                Standardized hardware, testing objects, field materials, tools,
+                and safety equipment.
               </p>
             </article>
             <article>
               <span>02</span>
-              <h3>Shape a new platform</h3>
+              <h3>Event operations</h3>
               <p>
-                Help establish the standards, culture, and staying power of a
-                Canadian competition.
+                Venue logistics, signage, judging materials, participant
+                support, and technical operations.
               </p>
             </article>
             <article>
               <span>03</span>
-              <h3>Be seen building the future</h3>
+              <h3>Student awards</h3>
               <p>
-                Earn visibility through event branding, student engagement, and
-                national social content.
+                Prizes and recognition for technical performance, engineering
+                process, and team execution.
               </p>
             </article>
           </div>
@@ -138,12 +132,12 @@ export default function SponsorsPage() {
         <div className="container">
           <div className="tier-heading">
             <div>
-              <p className="section-label">2026–27 sponsorship</p>
-              <h2>Choose your level of impact.</h2>
+              <p className="section-label">2026-27 sponsorship</p>
+              <h2>Sponsorship levels.</h2>
             </div>
             <p>
-              Every tier helps students turn engineering theory into an
-              integrated humanoid system.
+              Benefits scale with contribution level and include direct access
+              to participating students, event visibility, and recognition.
             </p>
           </div>
           <div className="tier-grid">
@@ -155,17 +149,14 @@ export default function SponsorsPage() {
                 </div>
                 <ul>
                   {tier.benefits.map((benefit) => (
-                    <li key={benefit}>
-                      <span aria-hidden="true">✓</span>
-                      {benefit}
-                    </li>
+                    <li key={benefit}>{benefit}</li>
                   ))}
                 </ul>
                 <a
                   href={`mailto:canadianhumanoidroboticscomp@gmail.com?subject=CHRC%20${tier.name}%20Sponsorship`}
                   className="tier-link"
                 >
-                  Sponsor at {tier.name} <span aria-hidden="true">↗</span>
+                  Discuss {tier.name} sponsorship
                 </a>
               </article>
             ))}
@@ -176,21 +167,21 @@ export default function SponsorsPage() {
       <section className="in-kind-section">
         <div className="container in-kind-grid">
           <div>
-            <p className="section-label light-label">More ways to contribute</p>
-            <h2>Hardware. Prizes. Expertise.</h2>
+            <p className="section-label light-label">Non-cash support</p>
+            <h2>In-kind contributions.</h2>
           </div>
           <div>
             <p>
-              We welcome in-kind contributions such as components, tools,
-              manufacturing support, participant merchandise, and competition
-              prizes. These contributions improve the student experience and
-              put useful technology directly into builders&apos; hands.
+              CHRC accepts components, tools, manufacturing support, participant
+              merchandise, professional services, and competition prizes. We
+              will document the agreed contribution and corresponding sponsor
+              recognition.
             </p>
             <a
-              href="mailto:canadianhumanoidroboticscomp@gmail.com?subject=CHRC%20In-kind%20Partnership"
+              href="mailto:canadianhumanoidroboticscomp@gmail.com?subject=CHRC%20In-kind%20Contribution"
               className="button button-white"
             >
-              Propose an in-kind partnership <span aria-hidden="true">↗</span>
+              Discuss an in-kind contribution
             </a>
           </div>
         </div>
@@ -198,21 +189,26 @@ export default function SponsorsPage() {
 
       <section className="sponsor-contact">
         <div className="container sponsor-contact-inner">
-          <p className="section-label">A first-year opportunity</p>
-          <h2>Put your name beside the starting line.</h2>
+          <p className="section-label">Sponsorship contact</p>
+          <h2>Contact the CHRC sponsorship team.</h2>
           <p>
-            Let&apos;s build a partnership around your goals and the
-            opportunities you want to create for Canadian students.
+            Tell us which contribution level or in-kind support you are
+            considering. We will respond with the current package and next
+            steps.
           </p>
           <a
-            href="mailto:canadianhumanoidroboticscomp@gmail.com?subject=Let's%20talk%20about%20CHRC"
+            href="mailto:canadianhumanoidroboticscomp@gmail.com?subject=CHRC%20Sponsorship"
             className="button button-primary"
           >
-            Talk with the CHRC team <span aria-hidden="true">↗</span>
+            Email CHRC sponsorship
           </a>
-          <Link href="/competition" className="text-link">
-            Explore the inaugural challenge →
-          </Link>
+          <a
+            href="/CHRC-sponsorship-package-2026-27.pdf"
+            download
+            className="text-link"
+          >
+            Download the 2026-27 package
+          </a>
         </div>
       </section>
     </>
