@@ -12,15 +12,15 @@ export default function CompetitionSignupPage() {
     <section className="form-section competition-signup-page">
       <div className="container form-layout">
         <aside className="form-aside">
-          <div className="signup-hand-visual" aria-hidden="true">
-            <img src="/images/hand-competition.png" alt="" />
-          </div>
           <p className="section-label light-label">Competition registration</p>
           <h2>CHRC 2027 is for university teams.</h2>
           <p className="form-aside-copy">
             Submit your team&apos;s information to receive registration updates
             and the competition package when it is released.
           </p>
+          <div className="signup-hand-visual" aria-hidden="true">
+            <img src="/images/hand-competition.png" alt="" />
+          </div>
           <div className="registration-facts">
             <div>
               <span>System</span>

@@ -6,15 +6,15 @@ const roadmap = [
     phase: "Dexterity",
     title: "The hand",
     copy: "Teams receive a standardized arm and focus their engineering on sensing, grasping, actuation, and control.",
-    image: "/images/season-2027-hand.png",
-    alt: "A standalone articulated humanoid hand mounted to a standardized robotic forearm",
+    image: "/images/season-2027-hand-v3.png",
+    alt: "A complete robotic arm from its shoulder base to an attached articulated hand",
   },
   {
     year: "2028",
     phase: "Integration",
     title: "The upper body",
     copy: "Two arms, a torso, perception, and systems that have to work together.",
-    image: "/images/season-2028-upper-body.png",
+    image: "/images/season-2028-upper-body-v3.png",
     alt: "A standalone humanoid upper-body assembly with a torso, two arms, and two hands",
   },
   {
@@ -22,7 +22,7 @@ const roadmap = [
     phase: "Mobility",
     title: "The biped",
     copy: "Balance and locomotion bring the competition onto its feet.",
-    image: "/images/season-2029-biped.png",
+    image: "/images/season-2029-biped-v3.png",
     alt: "A standalone robotic biped test platform with a pelvis, two articulated legs, and two feet",
   },
   {
@@ -30,7 +30,7 @@ const roadmap = [
     phase: "Full system",
     title: "The humanoid",
     copy: "A complete humanoid competition with integrated, autonomous systems.",
-    image: "/images/season-2030-humanoid.png",
+    image: "/images/season-2030-humanoid-v3.png",
     alt: "A complete humanoid robot standing naturally in a university robotics laboratory",
   },
 ];
@@ -41,7 +41,7 @@ export default function Home() {
       <section className="hero">
         <div className="hero-image-wrap" aria-hidden="true">
           <img
-            src="/images/chrc-hero-v3.png"
+            src="/images/chrc-hero-v5.png"
             alt=""
             className="hero-image"
           />

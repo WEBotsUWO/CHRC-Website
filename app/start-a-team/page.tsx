@@ -13,11 +13,6 @@ export default function StartATeamPage() {
       <section className="form-section team-form-page" id="interest-form">
         <div className="container form-layout">
           <aside className="form-aside">
-            <div className="team-form-graphic" aria-hidden="true">
-              <span />
-              <span />
-              <span />
-            </div>
             <p className="section-label light-label">Start a team</p>
             <h2>One student is enough to begin.</h2>
             <p className="form-aside-copy">
@@ -25,6 +20,11 @@ export default function StartATeamPage() {
               university recognition, recruiting, faculty outreach, and a
               realistic first plan.
             </p>
+            <div className="team-form-graphic" aria-hidden="true">
+              <span />
+              <span />
+              <span />
+            </div>
             <ul className="support-list">
               <li>
                 <span>01</span>
