@@ -602,15 +602,13 @@ textarea:focus-visible {
   aspect-ratio: 3 / 2;
   margin: 0 0 24px;
   overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  border-radius: 6px;
-  background: #e7e5e1;
+  background: transparent;
 }
 
 .timeline-visual img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   object-position: center;
   transition: transform 320ms ease;
 }
