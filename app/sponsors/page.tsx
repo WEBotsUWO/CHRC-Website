@@ -58,7 +58,7 @@ export default function SponsorsPage() {
     <>
       <section className="sponsor-hero">
         <div className="sponsor-hero-art" aria-hidden="true">
-          <img src="/images/sponsor-hardware.png" alt="" />
+          <img src="/images/sponsor-hardware-v2.png" alt="" />
         </div>
         <div className="container sponsor-hero-grid">
           <div>
@@ -66,7 +66,7 @@ export default function SponsorsPage() {
             <h1>Sponsor CHRC 2027.</h1>
             <p>
               Sponsorship funds competition equipment, event operations, and
-              student awards for the inaugural university competition.
+              technical development for the inaugural university competition.
             </p>
             <div className="hero-actions">
               <a
@@ -118,10 +118,10 @@ export default function SponsorsPage() {
             </article>
             <article>
               <span>03</span>
-              <h3>Student awards</h3>
+              <h3>Competition development</h3>
               <p>
-                Prizes and recognition for technical performance, engineering
-                process, and team execution.
+                Rules, evaluation systems, technical documentation, and the
+                infrastructure needed to grow each season.
               </p>
             </article>
           </div>

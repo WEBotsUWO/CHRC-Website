@@ -31,9 +31,17 @@ export function SiteHeader() {
             </Link>
           ))}
         </nav>
-        <Link href="/start-a-team" className="button button-primary header-cta">
-          Start a team
-        </Link>
+        <div className="header-actions">
+          <Link
+            href="/competition-signup"
+            className="button button-quiet header-signup"
+          >
+            Sign up
+          </Link>
+          <Link href="/start-a-team" className="button button-primary header-cta">
+            Start a team
+          </Link>
+        </div>
         <details className="mobile-menu">
           <summary aria-label="Open navigation">
             <span />

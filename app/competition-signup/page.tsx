@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { CompetitionRegistrationForm } from "../components/CompetitionRegistrationForm";
 
 export const metadata: Metadata = {
@@ -19,7 +20,7 @@ export default function CompetitionSignupPage() {
             and the competition package when it is released.
           </p>
           <div className="signup-hand-visual" aria-hidden="true">
-            <img src="/images/hand-competition.png" alt="" />
+            <img src="/images/hand-competition-v2.png" alt="" />
           </div>
           <div className="registration-facts">
             <div>
@@ -40,6 +41,14 @@ export default function CompetitionSignupPage() {
           <CompetitionRegistrationForm />
         </div>
       </div>
+      <Link
+        href="/start-a-team"
+        className="form-switcher form-switcher-team"
+        aria-label="Need a team first? Start a university team"
+      >
+        <span>Need a team first?</span>
+        <strong>Start a university team</strong>
+      </Link>
     </section>
   );
 }

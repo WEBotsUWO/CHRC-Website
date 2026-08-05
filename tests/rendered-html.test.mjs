@@ -8,6 +8,7 @@ test("ships the revised CHRC conversion experience", async () => {
   const [
     home,
     layout,
+    siteChrome,
     form,
     leadForm,
     competition,
@@ -17,6 +18,7 @@ test("ships the revised CHRC conversion experience", async () => {
   ] = await Promise.all([
     readFile(new URL("../app/page.tsx", import.meta.url), "utf8"),
     readFile(new URL("../app/layout.tsx", import.meta.url), "utf8"),
+    readFile(new URL("../app/components/SiteChrome.tsx", import.meta.url), "utf8"),
     readFile(new URL("../app/start-a-team/page.tsx", import.meta.url), "utf8"),
     readFile(new URL("../app/components/LeadForm.tsx", import.meta.url), "utf8"),
     readFile(new URL("../app/competition/page.tsx", import.meta.url), "utf8"),
@@ -38,13 +40,21 @@ test("ships the revised CHRC conversion experience", async () => {
   assert.doesNotMatch(home, /roadmap-evolution/);
   assert.match(home, /Humanoid Hand Competition/);
   assert.match(home, /Join the movement/);
+  assert.match(siteChrome, /href="\/competition-signup"/);
+  assert.match(siteChrome, />\s*Sign up\s*</);
   assert.match(form, /One student is enough to begin/);
+  assert.match(form, /Already have a team/);
+  assert.match(form, /competition-signup/);
   assert.match(leadForm, /Join the movement/);
   assert.match(competition, /May 15, 2027/);
   assert.match(competition, /Competition package coming soon/);
   assert.match(competitionSignup, /CompetitionRegistrationForm/);
+  assert.match(competitionSignup, /Need a team first/);
+  assert.match(competitionSignup, /start-a-team/);
   assert.match(registrationForm, /Register your team&apos;s interest/);
   assert.match(sponsors, /Where sponsorship funding goes/);
+  assert.match(sponsors, /Competition development/);
+  assert.doesNotMatch(sponsors, /Student awards/);
   assert.match(sponsors, /Sponsorship levels/);
   assert.match(layout, /CHRC \| Canadian Humanoid Robotics Competition/);
 });
@@ -63,8 +73,8 @@ test("removes starter-only code and keeps required assets", async () => {
     access(new URL("public/images/season-2028-upper-body-v4.png", root)),
     access(new URL("public/images/season-2029-biped-v4.png", root)),
     access(new URL("public/images/season-2030-humanoid-v4.png", root)),
-    access(new URL("public/images/hand-competition.png", root)),
-    access(new URL("public/images/sponsor-hardware.png", root)),
+    access(new URL("public/images/hand-competition-v2.png", root)),
+    access(new URL("public/images/sponsor-hardware-v2.png", root)),
     access(new URL("public/og.png", root)),
     access(new URL("public/CHRC-sponsorship-package-2026-27.pdf", root)),
   ]);

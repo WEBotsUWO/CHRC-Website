@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { LeadForm } from "../components/LeadForm";
 
 export const metadata: Metadata = {
@@ -55,6 +56,14 @@ export default function StartATeamPage() {
             <LeadForm />
           </div>
         </div>
+        <Link
+          href="/competition-signup"
+          className="form-switcher form-switcher-signup"
+          aria-label="Already have a team? Sign up for CHRC 2027"
+        >
+          <span>Already have a team?</span>
+          <strong>Sign up for CHRC 2027</strong>
+        </Link>
       </section>
 
       <section className="faq-section">
