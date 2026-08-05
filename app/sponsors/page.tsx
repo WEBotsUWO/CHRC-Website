@@ -58,7 +58,7 @@ export default function SponsorsPage() {
     <>
       <section className="sponsor-hero">
         <div className="sponsor-hero-art" aria-hidden="true">
-          <img src="/images/sponsor-hardware-v5.png" alt="" />
+          <img src="/images/sponsor-hardware-v6.png" alt="" />
         </div>
         <div className="container sponsor-hero-grid">
           <div>
