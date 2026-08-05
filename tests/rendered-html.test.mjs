@@ -73,7 +73,7 @@ test("removes starter-only code and keeps required assets", async () => {
     access(new URL("public/images/season-2028-upper-body-v4.png", root)),
     access(new URL("public/images/season-2029-biped-v4.png", root)),
     access(new URL("public/images/season-2030-humanoid-v4.png", root)),
-    access(new URL("public/images/hand-competition-v7.png", root)),
+    access(new URL("public/images/hand-competition-v9.png", root)),
     access(new URL("public/images/sponsor-hardware-v6.png", root)),
     access(new URL("public/og.png", root)),
     access(new URL("public/CHRC-sponsorship-package-2026-27.pdf", root)),

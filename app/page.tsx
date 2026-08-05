@@ -135,7 +135,7 @@ export default function Home() {
           <Link href="/competition" className="event-card">
             <div className="event-art">
               <img
-                src="/images/hand-competition-v7.png"
+                src="/images/hand-competition-v9.png"
                 alt="An articulated robot hand mounted to a research-grade robotic arm"
               />
               <div className="event-art-badge">Inaugural season</div>
