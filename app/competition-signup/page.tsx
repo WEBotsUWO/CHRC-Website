@@ -20,7 +20,7 @@ export default function CompetitionSignupPage() {
             and the competition package when it is released.
           </p>
           <div className="signup-hand-visual" aria-hidden="true">
-            <img src="/images/hand-competition-v3.png" alt="" />
+            <img src="/images/hand-competition-v5.png" alt="" />
           </div>
           <div className="registration-facts">
             <div>
