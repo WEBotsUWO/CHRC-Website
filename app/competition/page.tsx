@@ -13,7 +13,7 @@ export default function CompetitionPage() {
       <section className="competition-hero">
         <div className="competition-hero-art">
           <img
-            src="/images/hand-competition-v2.png"
+            src="/images/hand-competition-v3.png"
             alt="A dexterous humanoid robot hand mounted to a standardized robotic arm"
           />
         </div>
