@@ -5,7 +5,7 @@ import { publicAsset } from "../site";
 export const metadata: Metadata = {
   title: "CHRC 2027 Humanoid Hand Competition",
   description:
-    "CHRC 2027 is a university-exclusive humanoid hand competition using a standardized open-source robotic arm.",
+    "CHRC 2027 is a humanoid hand competition for university and college teams using a standardized open-source robotic arm.",
 };
 
 export default function CompetitionPage() {
@@ -29,15 +29,15 @@ export default function CompetitionPage() {
           <div className="competition-date">
             <div>
               <span>Target date</span>
-              <strong>May 15, 2027</strong>
+              <strong>May 8, 2027</strong>
             </div>
             <div>
               <span>Time</span>
-              <strong>10:00 AM to 5:00 PM ET</strong>
+              <strong>9:00 AM to 5:00 PM ET</strong>
             </div>
             <div>
               <span>Eligibility</span>
-              <strong>Canadian university teams</strong>
+              <strong>Canadian university and college teams</strong>
             </div>
           </div>
           <div className="hero-actions">

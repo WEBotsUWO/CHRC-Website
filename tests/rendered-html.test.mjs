@@ -46,7 +46,8 @@ test("ships the revised CHRC conversion experience", async () => {
   assert.match(form, /Already have a team/);
   assert.match(form, /competition-signup/);
   assert.match(leadForm, /Join the movement/);
-  assert.match(competition, /May 15, 2027/);
+  assert.match(competition, /May 8, 2027/);
+  assert.match(competition, /9:00 AM to 5:00 PM ET/);
   assert.match(competition, /Competition package coming soon/);
   assert.match(competitionSignup, /CompetitionRegistrationForm/);
   assert.match(competitionSignup, /Need a team first/);
@@ -101,6 +102,7 @@ test("removes the banned copy and default arrow glyphs", async () => {
   assert.doesNotMatch(source, /challenge/i);
   assert.doesNotMatch(source, /[—→↗↓✓×]/);
   assert.doesNotMatch(source, /The future needs a team|Why not yours|proving ground/i);
+  assert.doesNotMatch(source, /university-exclusive|May 15, 2027|10:00 AM to 5:00 PM/i);
 });
 
 test("includes a GitHub Pages deployment and hosted form delivery", async () => {

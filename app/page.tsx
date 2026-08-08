@@ -52,9 +52,9 @@ export default function Home() {
             <p className="hero-kicker">C.H.R.C.</p>
             <h1>Canadian Humanoid Robotics Competition</h1>
             <p className="hero-lede">
-              The first university-exclusive humanoid robotics competition in
-              Canada, built to grow from a focused hand competition into a full
-              humanoid event by 2030.
+              Canada&apos;s first humanoid robotics competition built for
+              university and college teams, growing from a focused hand
+              competition into a full humanoid event by 2030.
             </p>
             <div className="hero-actions">
               <Link href="/start-a-team" className="button button-primary">
@@ -65,7 +65,7 @@ export default function Home() {
               </Link>
             </div>
             <div className="hero-proof" aria-label="Competition highlights">
-              <span>University exclusive</span>
+              <span>University + college teams</span>
               <span>Inaugural event: 2027</span>
               <span>Full humanoid target: 2030</span>
             </div>
@@ -111,7 +111,7 @@ export default function Home() {
           <div className="roadmap-cta">
             <div>
               <p className="section-label light-label">Bring CHRC to your campus</p>
-              <h3>Interested? Start a team at your university.</h3>
+              <h3>Interested? Start a team at your university or college.</h3>
             </div>
             <Link href="/start-a-team" className="button button-white">
               Start a team
@@ -153,12 +153,12 @@ export default function Home() {
               <div className="event-meta">
                 <div>
                   <span>Date</span>
-                  <strong>May 15, 2027</strong>
+                  <strong>May 8, 2027</strong>
                   <small>Provisional</small>
                 </div>
                 <div>
                   <span>Time</span>
-                  <strong>10:00 AM to 5:00 PM</strong>
+                  <strong>9:00 AM to 5:00 PM ET</strong>
                   <small>Eastern Time</small>
                 </div>
               </div>
@@ -177,8 +177,8 @@ export default function Home() {
             </div>
             <p className="section-copy">
               CHRC began inside WeBots, Western University&apos;s humanoid
-              robotics club, to give university teams a long-term technical
-              platform for building humanoid systems.
+              robotics club, to give university and college teams a long-term
+              technical platform for building humanoid systems.
             </p>
           </div>
           <div className="leader-grid">
@@ -227,11 +227,11 @@ export default function Home() {
 
       <section className="final-cta">
         <div className="container final-cta-inner">
-          <p className="section-label light-label">University teams wanted</p>
+          <p className="section-label light-label">University + college teams wanted</p>
           <h2>Join the movement.</h2>
           <p>
             Start a new club with support from CHRC, or register an existing
-            university team for the inaugural competition.
+            university or college team for the inaugural competition.
           </p>
           <div className="hero-actions">
             <Link href="/start-a-team" className="button button-white">

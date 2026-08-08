@@ -67,7 +67,7 @@ export default function SponsorsPage() {
             <h1>Sponsor CHRC 2027.</h1>
             <p>
               Sponsorship funds competition equipment, event operations, and
-              technical development for the inaugural university competition.
+              technical development for the inaugural post-secondary competition.
             </p>
             <div className="hero-actions">
               <a
@@ -97,7 +97,8 @@ export default function SponsorsPage() {
             </div>
             <p className="section-copy">
               Contributions support the shared equipment and event
-              infrastructure required to run CHRC 2027 for university teams.
+              infrastructure required to run CHRC 2027 for university and
+              college teams.
             </p>
           </div>
           <div className="value-grid">

@@ -5,7 +5,7 @@ import { LeadForm } from "../components/LeadForm";
 export const metadata: Metadata = {
   title: "Start a Team",
   description:
-    "Tell CHRC about your university and get direct help recruiting students, forming a club, and preparing for the competition.",
+    "Tell CHRC about your university or college and get direct help recruiting students, forming a club, and preparing for the competition.",
 };
 
 export default function StartATeamPage() {
@@ -18,8 +18,8 @@ export default function StartATeamPage() {
             <h2>One student is enough to begin.</h2>
             <p className="form-aside-copy">
               Tell us where you are starting. A CHRC organizer can help with
-              university recognition, recruiting, faculty outreach, and a
-              realistic first plan.
+              campus recognition, recruiting, faculty outreach, and a realistic
+              first plan.
             </p>
             <div className="team-form-graphic" aria-hidden="true">
               <span />
@@ -29,7 +29,7 @@ export default function StartATeamPage() {
             <ul className="support-list">
               <li>
                 <span>01</span>
-                Club setup and university recognition
+                Club setup and campus recognition
               </li>
               <li>
                 <span>02</span>

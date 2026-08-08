@@ -95,23 +95,23 @@ export function CompetitionRegistrationForm() {
         <p className="section-label">CHRC 2027</p>
         <h2>Register your team&apos;s interest.</h2>
         <p>
-          This form is for established or forming university teams planning to
-          enter the Humanoid Hand Competition.
+          This form is for established or forming university and college teams
+          planning to enter the Humanoid Hand Competition.
         </p>
       </div>
 
       <div className="form-grid">
         <label>
           <span>Team or club name *</span>
-          <input name="teamName" required placeholder="University Robotics Club" />
+          <input name="teamName" required placeholder="Campus Robotics Club" />
         </label>
         <label>
-          <span>University *</span>
+          <span>University or college *</span>
           <input
             name="university"
             autoComplete="organization"
             required
-            placeholder="Your university"
+            placeholder="Your university or college"
           />
         </label>
         <label>
@@ -124,13 +124,13 @@ export function CompetitionRegistrationForm() {
           />
         </label>
         <label>
-          <span>University email *</span>
+          <span>School email *</span>
           <input
             name="email"
             type="email"
             autoComplete="email"
             required
-            placeholder="alex@university.ca"
+            placeholder="alex@school.ca"
           />
         </label>
         <label>
@@ -169,7 +169,7 @@ export function CompetitionRegistrationForm() {
             <option value="" disabled>
               Select your status
             </option>
-            <option value="recognized-club">Recognized university club</option>
+            <option value="recognized-club">Recognized campus club</option>
             <option value="existing-team">Existing technical team</option>
             <option value="forming">Team is currently forming</option>
           </select>

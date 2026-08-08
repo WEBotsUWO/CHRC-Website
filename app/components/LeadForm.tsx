@@ -47,7 +47,7 @@ export function LeadForm() {
             disciplines: payload.disciplines.join(", "),
             companyWebsite: undefined,
             _honey: payload.companyWebsite,
-            _subject: `New CHRC team lead: ${payload.university || "University not provided"}`,
+            _subject: `New CHRC team lead: ${payload.university || "School not provided"}`,
             _template: "table",
           }
         : payload;
@@ -104,8 +104,8 @@ export function LeadForm() {
         <p className="section-label">Start a team</p>
         <h2>Join the movement.</h2>
         <p>
-          Tell us about your university, your current team size, and where you
-          are starting. One person is enough to submit.
+          Tell us about your university or college, your current team size, and
+          where you are starting. One person is enough to submit.
         </p>
       </div>
 
@@ -115,13 +115,13 @@ export function LeadForm() {
           <input name="name" autoComplete="name" required placeholder="Alex Chen" />
         </label>
         <label>
-          <span>University email *</span>
+          <span>School email *</span>
           <input
             name="email"
             type="email"
             autoComplete="email"
             required
-            placeholder="alex@university.ca"
+            placeholder="alex@school.ca"
           />
         </label>
         <label>
@@ -134,12 +134,12 @@ export function LeadForm() {
           />
         </label>
         <label>
-          <span>University *</span>
+          <span>University or college *</span>
           <input
             name="university"
             autoComplete="organization"
             required
-            placeholder="Your university"
+            placeholder="Your university or college"
           />
         </label>
         <label>
@@ -179,7 +179,7 @@ export function LeadForm() {
           <label className="choice-card">
             <input type="radio" name="startingPoint" value="faculty" />
             <span>
-              <strong>Faculty / university support</strong>
+              <strong>Faculty / institution support</strong>
               <small>I can help students build a team on campus.</small>
             </span>
           </label>
@@ -216,7 +216,7 @@ export function LeadForm() {
         <input type="checkbox" name="consent" required />
         <span>
           I agree that CHRC may contact me about starting or joining a university
-          team. We won&apos;t sell or share my details.
+          or college team. We won&apos;t sell or share my details.
         </span>
       </label>
 

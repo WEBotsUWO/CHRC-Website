@@ -78,12 +78,12 @@ export function SiteFooter() {
             />
             <span className="brand-type">
               <strong>CHRC</strong>
-              <small>University teams. Humanoid systems.</small>
+              <small>University and college teams. Humanoid systems.</small>
             </span>
           </Link>
           <p className="footer-note">
-            Canada&apos;s first university-exclusive humanoid robotics
-            competition.
+            Canada&apos;s first humanoid robotics competition built for university
+            and college teams.
           </p>
         </div>
         <div className="footer-links">
@@ -113,7 +113,7 @@ export function SiteFooter() {
       </div>
       <div className="container footer-bottom">
         <span>© 2026 Canadian Humanoid Robotics Competition</span>
-        <span>University-exclusive competition for humanoid robotics.</span>
+        <span>Humanoid robotics for university and college teams.</span>
       </div>
     </footer>
   );

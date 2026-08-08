@@ -6,7 +6,7 @@ import { publicAsset } from "../site";
 export const metadata: Metadata = {
   title: "CHRC 2027 Sign Up",
   description:
-    "Register your university team's interest in the CHRC 2027 Humanoid Hand Competition.",
+    "Register your university or college team's interest in the CHRC 2027 Humanoid Hand Competition.",
 };
 
 export default function CompetitionSignupPage() {
@@ -15,7 +15,7 @@ export default function CompetitionSignupPage() {
       <div className="container form-layout">
         <aside className="form-aside">
           <p className="section-label light-label">Competition registration</p>
-          <h2>CHRC 2027 is for university teams.</h2>
+          <h2>CHRC 2027 is for university and college teams.</h2>
           <p className="form-aside-copy">
             Submit your team&apos;s information to receive registration updates
             and the competition package when it is released.
@@ -30,7 +30,7 @@ export default function CompetitionSignupPage() {
             </div>
             <div>
               <span>Target date</span>
-              <strong>May 15, 2027</strong>
+              <strong>May 8, 2027</strong>
             </div>
             <div>
               <span>Arm platform</span>
@@ -45,10 +45,10 @@ export default function CompetitionSignupPage() {
       <Link
         href="/start-a-team"
         className="form-switcher form-switcher-team"
-        aria-label="Need a team first? Start a university team"
+        aria-label="Need a team first? Start a university or college team"
       >
         <span>Need a team first?</span>
-        <strong>Start a university team</strong>
+        <strong>Start a university or college team</strong>
       </Link>
     </section>
   );

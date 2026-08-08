@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     template: "%s | CHRC",
   },
   description:
-    "Canada's first university-exclusive humanoid robotics competition, progressing from a humanoid hand in 2027 to a full humanoid event by 2030.",
+    "Canada's first humanoid robotics competition for university and college teams, progressing from a humanoid hand in 2027 to a full humanoid event by 2030.",
   icons: {
     icon: publicAsset("/images/chrc-logo.jpeg"),
     shortcut: publicAsset("/images/chrc-logo.jpeg"),
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "CHRC | Canadian Humanoid Robotics Competition",
     description:
-      "Join Canada's first university-exclusive humanoid robotics competition.",
+      "Join Canada's first humanoid robotics competition for university and college teams.",
     type: "website",
     images: [
       {
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "CHRC | Canadian Humanoid Robotics Competition",
     description:
-      "Join Canada's first university-exclusive humanoid robotics competition.",
+      "Join Canada's first humanoid robotics competition for university and college teams.",
     images: [publicAsset("/og.png")],
   },
 };
