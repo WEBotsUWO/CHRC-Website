@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { publicAsset } from "../site";
 
 export const metadata: Metadata = {
   title: "Sponsors",
@@ -58,7 +59,7 @@ export default function SponsorsPage() {
     <>
       <section className="sponsor-hero">
         <div className="sponsor-hero-art" aria-hidden="true">
-          <img src="/images/sponsor-hardware-v6.png" alt="" />
+          <img src={publicAsset("/images/sponsor-hardware-v6.png")} alt="" />
         </div>
         <div className="container sponsor-hero-grid">
           <div>
@@ -76,7 +77,7 @@ export default function SponsorsPage() {
                 Request sponsor information
               </a>
               <a
-                href="/CHRC-sponsorship-package-2026-27.pdf"
+                href={publicAsset("/CHRC-sponsorship-package-2026-27.pdf")}
                 download
                 className="button button-quiet"
               >
@@ -203,7 +204,7 @@ export default function SponsorsPage() {
             Email CHRC sponsorship
           </a>
           <a
-            href="/CHRC-sponsorship-package-2026-27.pdf"
+            href={publicAsset("/CHRC-sponsorship-package-2026-27.pdf")}
             download
             className="text-link"
           >

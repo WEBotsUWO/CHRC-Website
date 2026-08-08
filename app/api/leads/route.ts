@@ -1,4 +1,3 @@
-import { ensureLeadSchema, getDb } from "@/db";
 import { teamLeads } from "@/db/schema";
 
 type LeadPayload = {
@@ -57,6 +56,7 @@ export async function POST(request: Request) {
       );
     }
 
+    const { ensureLeadSchema, getDb } = await import("@/db");
     await ensureLeadSchema();
     const db = getDb();
     await db.insert(teamLeads).values({

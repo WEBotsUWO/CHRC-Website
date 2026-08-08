@@ -1,4 +1,3 @@
-import { ensureCompetitionRegistrationSchema, getDb } from "@/db";
 import { competitionRegistrations } from "@/db/schema";
 
 type RegistrationPayload = {
@@ -59,6 +58,7 @@ export async function POST(request: Request) {
       );
     }
 
+    const { ensureCompetitionRegistrationSchema, getDb } = await import("@/db");
     await ensureCompetitionRegistrationSchema();
     const db = getDb();
     await db.insert(competitionRegistrations).values({

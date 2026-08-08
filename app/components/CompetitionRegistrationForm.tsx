@@ -2,6 +2,8 @@
 
 import { FormEvent, useState } from "react";
 
+const hostedFormEndpoint = process.env.NEXT_PUBLIC_FORM_ENDPOINT;
+
 export function CompetitionRegistrationForm() {
   const [state, setState] = useState<"idle" | "sending" | "success" | "error">(
     "idle"
@@ -30,10 +32,23 @@ export function CompetitionRegistrationForm() {
     };
 
     try {
-      const response = await fetch("/api/registrations", {
+      const endpoint = hostedFormEndpoint ?? "/api/registrations";
+      const requestPayload = hostedFormEndpoint
+        ? {
+            ...payload,
+            companyWebsite: undefined,
+            _honey: payload.companyWebsite,
+            _subject: `New CHRC 2027 registration: ${payload.teamName || "Team not provided"}`,
+            _template: "table",
+          }
+        : payload;
+      const response = await fetch(endpoint, {
         method: "POST",
-        headers: { "content-type": "application/json" },
-        body: JSON.stringify(payload),
+        headers: {
+          "content-type": "application/json",
+          accept: "application/json",
+        },
+        body: JSON.stringify(requestPayload),
       });
       const result = (await response.json()) as { error?: string };
 

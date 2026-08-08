@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { CompetitionRegistrationForm } from "../components/CompetitionRegistrationForm";
+import { publicAsset } from "../site";
 
 export const metadata: Metadata = {
   title: "CHRC 2027 Sign Up",
@@ -20,7 +21,7 @@ export default function CompetitionSignupPage() {
             and the competition package when it is released.
           </p>
           <div className="signup-hand-visual" aria-hidden="true">
-            <img src="/images/hand-competition-v9.png" alt="" />
+            <img src={publicAsset("/images/hand-competition-v9.png")} alt="" />
           </div>
           <div className="registration-facts">
             <div>

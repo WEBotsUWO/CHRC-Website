@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
-import { headers } from "next/headers";
 import { Geist, Geist_Mono } from "next/font/google";
 import { SiteFooter, SiteHeader } from "./components/SiteChrome";
 import "./globals.css";
+import { publicAsset } from "./site";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -14,51 +14,40 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export async function generateMetadata(): Promise<Metadata> {
-  const headerList = await headers();
-  const host = headerList.get("x-forwarded-host") ?? headerList.get("host");
-  const protocol =
-    headerList.get("x-forwarded-proto") ??
-    (host?.includes("localhost") ? "http" : "https");
-  const metadataBase = host
-    ? new URL(`${protocol}://${host}`)
-    : new URL("https://chrc.ca");
-
-  return {
-    metadataBase,
-    title: {
-      default: "CHRC | Canadian Humanoid Robotics Competition",
-      template: "%s | CHRC",
-    },
+export const metadata: Metadata = {
+  metadataBase: new URL("https://chrc.ca"),
+  title: {
+    default: "CHRC | Canadian Humanoid Robotics Competition",
+    template: "%s | CHRC",
+  },
+  description:
+    "Canada's first university-exclusive humanoid robotics competition, progressing from a humanoid hand in 2027 to a full humanoid event by 2030.",
+  icons: {
+    icon: publicAsset("/images/chrc-logo.jpeg"),
+    shortcut: publicAsset("/images/chrc-logo.jpeg"),
+  },
+  openGraph: {
+    title: "CHRC | Canadian Humanoid Robotics Competition",
     description:
-      "Canada's first university-exclusive humanoid robotics competition, progressing from a humanoid hand in 2027 to a full humanoid event by 2030.",
-    icons: {
-      icon: "/images/chrc-logo.jpeg",
-      shortcut: "/images/chrc-logo.jpeg",
-    },
-    openGraph: {
-      title: "CHRC | Canadian Humanoid Robotics Competition",
-      description:
-        "Join Canada's first university-exclusive humanoid robotics competition.",
-      type: "website",
-      images: [
-        {
-          url: "/og.png",
-          width: 1792,
-          height: 896,
-          alt: "CHRC - Canadian Humanoid Robotics Competition",
-        },
-      ],
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: "CHRC | Canadian Humanoid Robotics Competition",
-      description:
-        "Join Canada's first university-exclusive humanoid robotics competition.",
-      images: ["/og.png"],
-    },
-  };
-}
+      "Join Canada's first university-exclusive humanoid robotics competition.",
+    type: "website",
+    images: [
+      {
+        url: publicAsset("/og.png"),
+        width: 1792,
+        height: 896,
+        alt: "CHRC - Canadian Humanoid Robotics Competition",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "CHRC | Canadian Humanoid Robotics Competition",
+    description:
+      "Join Canada's first university-exclusive humanoid robotics competition.",
+    images: [publicAsset("/og.png")],
+  },
+};
 
 export default function RootLayout({
   children,

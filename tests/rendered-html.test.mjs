@@ -102,3 +102,24 @@ test("removes the banned copy and default arrow glyphs", async () => {
   assert.doesNotMatch(source, /[—→↗↓✓×]/);
   assert.doesNotMatch(source, /The future needs a team|Why not yours|proving ground/i);
 });
+
+test("includes a GitHub Pages deployment and hosted form delivery", async () => {
+  const [workflow, nextConfig, leadForm, registrationForm] = await Promise.all([
+    readFile(new URL("../.github/workflows/deploy-pages.yml", import.meta.url), "utf8"),
+    readFile(new URL("../next.config.ts", import.meta.url), "utf8"),
+    readFile(new URL("../app/components/LeadForm.tsx", import.meta.url), "utf8"),
+    readFile(
+      new URL("../app/components/CompetitionRegistrationForm.tsx", import.meta.url),
+      "utf8",
+    ),
+  ]);
+
+  assert.match(workflow, /actions\/configure-pages@v5/);
+  assert.match(workflow, /actions\/upload-pages-artifact@v4/);
+  assert.match(workflow, /actions\/deploy-pages@v4/);
+  assert.match(workflow, /NEXT_PUBLIC_FORM_ENDPOINT/);
+  assert.match(nextConfig, /output: "export"/);
+  assert.match(nextConfig, /basePath: pagesBasePath/);
+  assert.match(leadForm, /NEXT_PUBLIC_FORM_ENDPOINT/);
+  assert.match(registrationForm, /NEXT_PUBLIC_FORM_ENDPOINT/);
+});

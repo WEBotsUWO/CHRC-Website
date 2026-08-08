@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { publicAsset } from "../site";
 
 const nav = [
   { href: "/competition", label: "CHRC 2027" },
@@ -13,7 +14,7 @@ export function SiteHeader() {
       <div className="container header-inner">
         <Link href="/" className="brand" aria-label="CHRC home">
           <img
-            src="/images/chrc-logo.jpeg"
+            src={publicAsset("/images/chrc-logo.jpeg")}
             alt=""
             width={46}
             height={46}
@@ -69,7 +70,7 @@ export function SiteFooter() {
         <div>
           <Link href="/" className="brand footer-brand">
             <img
-              src="/images/chrc-logo.jpeg"
+              src={publicAsset("/images/chrc-logo.jpeg")}
               alt=""
               width={52}
               height={52}
@@ -105,7 +106,7 @@ export function SiteFooter() {
           >
             Instagram
           </a>
-          <a href="/CHRC-sponsorship-package-2026-27.pdf" download>
+          <a href={publicAsset("/CHRC-sponsorship-package-2026-27.pdf")} download>
             Sponsorship package
           </a>
         </div>

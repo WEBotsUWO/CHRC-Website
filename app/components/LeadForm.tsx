@@ -2,6 +2,8 @@
 
 import { FormEvent, useState } from "react";
 
+const hostedFormEndpoint = process.env.NEXT_PUBLIC_FORM_ENDPOINT;
+
 const disciplines = [
   "Mechanical",
   "Electrical",
@@ -38,10 +40,24 @@ export function LeadForm() {
     };
 
     try {
-      const response = await fetch("/api/leads", {
+      const endpoint = hostedFormEndpoint ?? "/api/leads";
+      const requestPayload = hostedFormEndpoint
+        ? {
+            ...payload,
+            disciplines: payload.disciplines.join(", "),
+            companyWebsite: undefined,
+            _honey: payload.companyWebsite,
+            _subject: `New CHRC team lead: ${payload.university || "University not provided"}`,
+            _template: "table",
+          }
+        : payload;
+      const response = await fetch(endpoint, {
         method: "POST",
-        headers: { "content-type": "application/json" },
-        body: JSON.stringify(payload),
+        headers: {
+          "content-type": "application/json",
+          accept: "application/json",
+        },
+        body: JSON.stringify(requestPayload),
       });
       const result = (await response.json()) as { error?: string };
 
