@@ -40,6 +40,7 @@ test("ships the revised CHRC conversion experience", async () => {
   assert.doesNotMatch(home, /roadmap-evolution/);
   assert.match(home, /Humanoid Hand Competition/);
   assert.match(home, /Join the movement/);
+  assert.match(home, /I started the competition to bridge the gap between/);
   assert.match(siteChrome, /href="\/competition-signup"/);
   assert.match(siteChrome, />\s*Sign up\s*</);
   assert.match(form, /One student is enough to begin/);

@@ -192,9 +192,11 @@ export default function Home() {
               </div>
               <div className="leader-copy">
                 <blockquote>
-                  “I hope CHRC brings together students from across Canada to
-                  build a community united by robotics, innovation, and
-                  engineering.”
+                  “I started the competition to bridge the gap between
+                  universities and the rapidly growing humanoid robotics
+                  industry, creating an ecosystem where students can learn,
+                  contribute, connect with industry, and build a passion for
+                  the technology.”
                 </blockquote>
                 <div>
                   <strong>Seth Evans</strong>
