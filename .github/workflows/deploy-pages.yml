@@ -38,7 +38,8 @@ jobs:
         run: npm run pages:build
         env:
           GITHUB_PAGES: "true"
-          NEXT_PUBLIC_BASE_PATH: ${{ steps.pages.outputs.base_path }}
+          # The custom domain serves this project at the domain root.
+          NEXT_PUBLIC_BASE_PATH: ""
           NEXT_PUBLIC_FORM_ENDPOINT: https://formsubmit.co/ajax/canadianhumanoidroboticscomp@gmail.com
 
       - name: Upload website

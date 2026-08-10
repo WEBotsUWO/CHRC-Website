@@ -1,7 +1,7 @@
 import type { NextConfig } from "next";
 
 const pagesBasePath = process.env.GITHUB_PAGES === "true"
-  ? (process.env.NEXT_PUBLIC_BASE_PATH ?? "/CHRC-Website")
+  ? (process.env.NEXT_PUBLIC_BASE_PATH ?? "")
   : "";
 
 const nextConfig: NextConfig = {

@@ -120,8 +120,11 @@ test("includes a GitHub Pages deployment and hosted form delivery", async () => 
   assert.match(workflow, /actions\/upload-pages-artifact@v4/);
   assert.match(workflow, /actions\/deploy-pages@v4/);
   assert.match(workflow, /NEXT_PUBLIC_FORM_ENDPOINT/);
+  assert.match(workflow, /NEXT_PUBLIC_BASE_PATH: ""/);
+  assert.doesNotMatch(workflow, /steps\.pages\.outputs\.base_path/);
   assert.match(nextConfig, /output: "export"/);
   assert.match(nextConfig, /basePath: pagesBasePath/);
+  assert.doesNotMatch(nextConfig, /\/CHRC-Website/);
   assert.match(leadForm, /NEXT_PUBLIC_FORM_ENDPOINT/);
   assert.match(registrationForm, /NEXT_PUBLIC_FORM_ENDPOINT/);
 });
