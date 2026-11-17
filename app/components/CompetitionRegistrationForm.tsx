@@ -1,6 +1,7 @@
 "use client";
 
 import { FormEvent, useState } from "react";
+import { competition2027, teamAvailability } from "../site";
 
 const hostedFormEndpoint = process.env.NEXT_PUBLIC_FORM_ENDPOINT;
 
@@ -9,16 +10,22 @@ export function CompetitionRegistrationForm() {
     "idle"
   );
   const [error, setError] = useState("");
+  const [hasConsent, setHasConsent] = useState(false);
+  const isSending = state === "sending";
 
   async function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    const form = event.currentTarget;
+    const formData = new FormData(form);
+    const consent = formData.get("consent") === "on";
+    if (!consent || isSending) return;
+
     setState("sending");
     setError("");
 
-    const form = event.currentTarget;
-    const formData = new FormData(form);
+    const teamName = String(formData.get("teamName") ?? "").trim();
     const payload = {
-      teamName: formData.get("teamName"),
+      teamName,
       university: formData.get("university"),
       contactName: formData.get("contactName"),
       email: formData.get("email"),
@@ -27,7 +34,7 @@ export function CompetitionRegistrationForm() {
       teamSize: formData.get("teamSize"),
       teamStatus: formData.get("teamStatus"),
       notes: formData.get("notes"),
-      consent: formData.get("consent") === "on",
+      consent,
       companyWebsite: formData.get("companyWebsite"),
     };
 
@@ -38,7 +45,7 @@ export function CompetitionRegistrationForm() {
             ...payload,
             companyWebsite: undefined,
             _honey: payload.companyWebsite,
-            _subject: `New CHRC 2027 registration: ${payload.teamName || "Team not provided"}`,
+            _subject: `${teamName || "Team not provided"} HAS REGISTERED FOR CHRC 2027`,
             _template: "table",
           }
         : payload;
@@ -57,6 +64,7 @@ export function CompetitionRegistrationForm() {
       }
 
       form.reset();
+      setHasConsent(false);
       setState("success");
     } catch (submissionError) {
       setState("error");
@@ -73,10 +81,17 @@ export function CompetitionRegistrationForm() {
       <div className="form-success" role="status">
         <span className="success-mark" aria-hidden="true" />
         <p className="section-label">Registration received</p>
-        <h2>Your CHRC 2027 interest is recorded.</h2>
+        <h2>Thanks for registering for CHRC 2027.</h2>
         <p>
           The CHRC team will contact your primary representative with the next
           registration steps and competition package updates.
+        </p>
+        <p>
+          If you still need to pay,{" "}
+          <a className="registration-payment-link" href={competition2027.registrationFeeUrl}>
+            pay the {competition2027.registrationFee} registration fee
+          </a>
+          {" "}through the Western Engineering store.
         </p>
         <button
           type="button"
@@ -93,10 +108,11 @@ export function CompetitionRegistrationForm() {
     <form className="lead-form registration-form" onSubmit={submit}>
       <div className="form-heading">
         <p className="section-label">CHRC 2027</p>
-        <h2>Register your team&apos;s interest.</h2>
+        <h2>Register your team.</h2>
         <p>
-          This form is for established or forming university and college teams
-          planning to enter the Humanoid Hand Competition.
+          Students enrolled at a Canadian university or college during the
+          2026–27 academic year can enter solo or in a team of up to 20.
+          Club membership is optional but encouraged.
         </p>
       </div>
 
@@ -160,15 +176,15 @@ export function CompetitionRegistrationForm() {
             <option value="2-5">2 to 5 people</option>
             <option value="6-10">6 to 10 people</option>
             <option value="11-20">11 to 20 people</option>
-            <option value="20+">20+ people</option>
           </select>
         </label>
         <label>
-          <span>Current status *</span>
+          <span>Team status *</span>
           <select name="teamStatus" required defaultValue="">
             <option value="" disabled>
               Select your status
             </option>
+            <option value="solo-entrant">Solo entrant</option>
             <option value="recognized-club">Recognized campus club</option>
             <option value="existing-team">Existing technical team</option>
             <option value="forming">Team is currently forming</option>
@@ -187,13 +203,38 @@ export function CompetitionRegistrationForm() {
         />
       </label>
 
+      <section className="registration-payment" aria-labelledby="registration-payment-heading">
+        <p className="registration-availability">{teamAvailability()}</p>
+        <h3 id="registration-payment-heading">
+          {competition2027.registrationFee} registration fee
+        </h3>
+        <p>
+          To complete registration, submit this form and pay the required fee
+          through the Western Engineering store.
+        </p>
+        <a
+          href={competition2027.registrationFeeUrl}
+          className="button button-quiet"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Pay registration fee
+        </a>
+      </section>
+
       <label className="honeypot" aria-hidden="true">
         Company website
         <input name="companyWebsite" tabIndex={-1} autoComplete="off" />
       </label>
 
       <label className="consent-row">
-        <input type="checkbox" name="consent" required />
+        <input
+          type="checkbox"
+          name="consent"
+          checked={hasConsent}
+          onChange={(event) => setHasConsent(event.currentTarget.checked)}
+          required
+        />
         <span>
           I agree that CHRC may contact me about CHRC 2027 registration and
           competition updates. CHRC will not sell or share my details.
@@ -213,9 +254,10 @@ export function CompetitionRegistrationForm() {
       <button
         type="submit"
         className="button button-primary submit-button"
-        disabled={state === "sending"}
+        aria-busy={isSending}
+        disabled={!hasConsent || isSending}
       >
-        {state === "sending" ? "Sending..." : "Submit CHRC 2027 registration"}
+        {isSending ? "Sending..." : "Submit CHRC 2027 registration"}
       </button>
     </form>
   );

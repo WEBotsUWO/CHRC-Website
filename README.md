@@ -18,7 +18,7 @@ GitHub's Pages settings are also where the CHRC custom domain should be added.
 The build reads GitHub's configured base path automatically, so no code change
 is needed when the domain is connected.
 
-The hosted signup forms send submissions to
+The hosted registration form sends submissions to
 `canadianhumanoidroboticscomp@gmail.com` through FormSubmit. The first live test
 submission sends a one-time activation email to that inbox; approve it once to
 begin receiving form submissions.

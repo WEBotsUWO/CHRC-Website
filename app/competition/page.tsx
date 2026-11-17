@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { publicAsset } from "../site";
+import { CompetitionEventDetails } from "../components/CompetitionEventDetails";
+import { CompetitionFaq } from "../components/CompetitionFaq";
+import { ConfirmedCompetitors } from "../components/ConfirmedCompetitors";
+import { competition2027, publicAsset, teamAvailability } from "../site";
 
 export const metadata: Metadata = {
   title: "CHRC 2027 Humanoid Hand Competition",
@@ -12,37 +15,25 @@ export default function CompetitionPage() {
   return (
     <>
       <section className="competition-hero">
-        <div className="competition-hero-art">
-          <img
-            src={publicAsset("/images/hand-competition-v9.png")}
-            alt="An articulated robot hand mounted to a research-grade robotic arm"
-          />
-        </div>
         <div className="container competition-hero-content">
-          <p className="section-label">CHRC 2027 / Competition 01</p>
+          <CompetitionEventDetails />
           <h1>Humanoid Hand Competition</h1>
           <p>
-            Teams will receive the same open-source arm and engineer the hand
-            that mounts to it. The arm positions the hand; the hand design,
-            sensing, actuation, and control are the team&apos;s work.
+            Teams design and build a humanoid hand and assemble a standardized
+            open-source arm using build files from CHRC. In each event, a team
+            member controls the robot in real time by moving their own arm and hand.
           </p>
-          <div className="competition-date">
-            <div>
-              <span>Target date</span>
-              <strong>May 8, 2027</strong>
-            </div>
-            <div>
-              <span>Time</span>
-              <strong>9:00 AM to 5:00 PM ET</strong>
-            </div>
-            <div>
-              <span>Eligibility</span>
-              <strong>Canadian university and college teams</strong>
-            </div>
-          </div>
+          <p className="registration-availability">
+            {teamAvailability()} · {competition2027.registrationFee} registration fee
+            <br />
+            Register by {competition2027.registrationDeadline}
+          </p>
           <div className="hero-actions">
-            <Link href="/competition-signup" className="button button-primary">
-              Sign up for CHRC 2027
+            <Link
+              href="/competition-signup"
+              className="button button-primary button-registration"
+            >
+              Register now
             </Link>
             <a
               href="mailto:canadianhumanoidroboticscomp@gmail.com?subject=CHRC%202027%20competition%20question"
@@ -51,12 +42,45 @@ export default function CompetitionPage() {
               Ask a question
             </a>
           </div>
-          <small className="provisional-note">
-            The final date and venue will be confirmed in the official
-            competition package.
-          </small>
+        </div>
+        <figure className="competition-hero-art">
+          <img
+            src={publicAsset("/images/hand-competition-v9.png")}
+            alt="An articulated robotic hand mounted to a robotic arm"
+          />
+          <figcaption className="concept-render-label">Concept render</figcaption>
+        </figure>
+      </section>
+
+      <section className="section competition-events" aria-labelledby="competition-events-heading">
+        <div className="container">
+          <div className="section-intro compact-intro">
+            <h2 id="competition-events-heading">What teams will do</h2>
+          </div>
+          <div className="competition-events-grid">
+            <article>
+              <h3>Object Relay</h3>
+              <p>Transfer objects of different shapes, sizes, and weights from one tray to another.</p>
+            </article>
+            <article>
+              <h3>Domino Challenge</h3>
+              <p>Pick up dominoes lying flat and place them upright on marked targets.</p>
+            </article>
+            <article>
+              <h3>Block Tower</h3>
+              <p>Stack delicate blocks into a stable tower without damaging them.</p>
+            </article>
+          </div>
         </div>
       </section>
+
+      <div className="section event-community">
+        <div className="container">
+          <ConfirmedCompetitors showSlots />
+        </div>
+      </div>
+
+      <CompetitionFaq />
 
       <section className="competition-package">
         <div className="container competition-package-inner">

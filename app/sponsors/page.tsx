@@ -58,9 +58,13 @@ export default function SponsorsPage() {
   return (
     <>
       <section className="sponsor-hero">
-        <div className="sponsor-hero-art" aria-hidden="true">
-          <img src={publicAsset("/images/sponsor-hardware-v6.png")} alt="" />
-        </div>
+        <figure className="sponsor-hero-art">
+          <img
+            src={publicAsset("/images/sponsor-hardware-v6.png")}
+            alt="A robotic hand mounted on a test stand"
+          />
+          <figcaption className="concept-render-label">Concept render</figcaption>
+        </figure>
         <div className="container sponsor-hero-grid">
           <div>
             <p className="section-label">Sponsorship 2026-27</p>
@@ -106,8 +110,8 @@ export default function SponsorsPage() {
               <span>01</span>
               <h3>Competition equipment</h3>
               <p>
-                Standardized hardware, testing objects, field materials, tools,
-                and safety equipment.
+                Help supply practice and event objects, build competition
+                fields, and equip the technical inspection area.
               </p>
             </article>
             <article>
@@ -174,10 +178,11 @@ export default function SponsorsPage() {
           </div>
           <div>
             <p>
-              CHRC accepts components, tools, manufacturing support, participant
-              merchandise, professional services, and competition prizes. We
-              will document the agreed contribution and corresponding sponsor
-              recognition.
+              In-kind support might include motors and sensors for student
+              builds, 3D printing or machining, or equipment for the
+              competition fields. We also welcome tools, professional services,
+              merchandise, and prizes. We’ll agree on the contribution and how
+              CHRC will recognize your support.
             </p>
             <a
               href="mailto:canadianhumanoidroboticscomp@gmail.com?subject=CHRC%20In-kind%20Contribution"

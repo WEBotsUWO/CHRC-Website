@@ -1,12 +1,11 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { CompetitionRegistrationForm } from "../components/CompetitionRegistrationForm";
-import { publicAsset } from "../site";
+import { competition2027, publicAsset } from "../site";
 
 export const metadata: Metadata = {
-  title: "CHRC 2027 Sign Up",
+  title: "CHRC 2027 Registration",
   description:
-    "Register your university or college team's interest in the CHRC 2027 Humanoid Hand Competition.",
+    "Register your university or college team for the CHRC 2027 Humanoid Hand Competition.",
 };
 
 export default function CompetitionSignupPage() {
@@ -15,26 +14,38 @@ export default function CompetitionSignupPage() {
       <div className="container form-layout">
         <aside className="form-aside">
           <p className="section-label light-label">Competition registration</p>
-          <h2>CHRC 2027 is for university and college teams.</h2>
+          <h2>CHRC 2027 Humanoid Hand Competition</h2>
           <p className="form-aside-copy">
             Submit your team&apos;s information to receive registration updates
             and the competition package when it is released.
           </p>
-          <div className="signup-hand-visual" aria-hidden="true">
-            <img src={publicAsset("/images/hand-competition-v9.png")} alt="" />
-          </div>
+          <figure className="signup-hand-visual">
+            <img
+              src={publicAsset("/images/hand-competition-v9.png")}
+              alt="An articulated robotic hand mounted to a robotic arm"
+            />
+            <figcaption className="concept-render-label">Concept render</figcaption>
+          </figure>
           <div className="registration-facts">
+            <div>
+              <span>Registration deadline</span>
+              <strong>{competition2027.registrationDeadline}</strong>
+            </div>
             <div>
               <span>System</span>
               <strong>Humanoid hand</strong>
             </div>
             <div>
-              <span>Target date</span>
-              <strong>May 8, 2027</strong>
+              <span>Date</span>
+              <strong>{competition2027.date}</strong>
             </div>
             <div>
-              <span>Arm platform</span>
-              <strong>Standardized and supplied</strong>
+              <span>Venue</span>
+              <strong>{competition2027.building}, {competition2027.venue}</strong>
+            </div>
+            <div>
+              <span>Maximum build budget</span>
+              <strong>{competition2027.maxBuildBudget}</strong>
             </div>
           </div>
         </aside>
@@ -42,14 +53,6 @@ export default function CompetitionSignupPage() {
           <CompetitionRegistrationForm />
         </div>
       </div>
-      <Link
-        href="/start-a-team"
-        className="form-switcher form-switcher-team"
-        aria-label="Need a team first? Start a university or college team"
-      >
-        <span>Need a team first?</span>
-        <strong>Start a university or college team</strong>
-      </Link>
     </section>
   );
 }

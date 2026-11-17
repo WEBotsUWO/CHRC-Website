@@ -9,10 +9,10 @@ test("ships the revised CHRC conversion experience", async () => {
     home,
     layout,
     siteChrome,
-    form,
-    leadForm,
+    legacyTeamPage,
     competition,
     competitionSignup,
+    eventDetails,
     registrationForm,
     sponsors,
   ] = await Promise.all([
@@ -20,9 +20,9 @@ test("ships the revised CHRC conversion experience", async () => {
     readFile(new URL("../app/layout.tsx", import.meta.url), "utf8"),
     readFile(new URL("../app/components/SiteChrome.tsx", import.meta.url), "utf8"),
     readFile(new URL("../app/start-a-team/page.tsx", import.meta.url), "utf8"),
-    readFile(new URL("../app/components/LeadForm.tsx", import.meta.url), "utf8"),
     readFile(new URL("../app/competition/page.tsx", import.meta.url), "utf8"),
     readFile(new URL("../app/competition-signup/page.tsx", import.meta.url), "utf8"),
+    readFile(new URL("../app/site.ts", import.meta.url), "utf8"),
     readFile(
       new URL("../app/components/CompetitionRegistrationForm.tsx", import.meta.url),
       "utf8",
@@ -30,8 +30,14 @@ test("ships the revised CHRC conversion experience", async () => {
     readFile(new URL("../app/sponsors/page.tsx", import.meta.url), "utf8"),
   ]);
 
-  assert.match(home, /Canadian Humanoid Robotics Competition/);
-  assert.match(home, /CHRC 2027 - sign up/);
+  const homeHeading = home.match(/<h1>(.*?)<\/h1>/s)?.[1] ?? "";
+  const homeHeadingText = homeHeading
+    .replace(/<[^>]+>/g, "")
+    .replaceAll('{" "}', " ")
+    .replace(/\s+/g, " ")
+    .trim();
+  assert.equal(homeHeadingText, "Canadian Humanoid Robotics Competition");
+  assert.match(home, /Register now/);
   assert.match(home, /Every season adds a system/);
   assert.match(home, /season-2027-hand-v4\.png/);
   assert.match(home, /season-2028-upper-body-v4\.png/);
@@ -43,17 +49,17 @@ test("ships the revised CHRC conversion experience", async () => {
   assert.match(home, /I started the competition to bridge the gap between/);
   assert.match(siteChrome, /href="\/competition-signup"/);
   assert.match(siteChrome, />\s*Sign up\s*</);
-  assert.match(form, /One student is enough to begin/);
-  assert.match(form, /Already have a team/);
-  assert.match(form, /competition-signup/);
-  assert.match(leadForm, /Join the movement/);
-  assert.match(competition, /May 8, 2027/);
-  assert.match(competition, /9:00 AM to 5:00 PM ET/);
+  assert.match(competition, /CompetitionEventDetails/);
+  assert.match(eventDetails, /May 8, 2027/);
+  assert.match(eventDetails, /Western University/);
+  assert.match(eventDetails, /9:00 AM to 5:00 PM ET/);
+  assert.match(eventDetails, /Subject to change/);
   assert.match(competition, /Competition package coming soon/);
   assert.match(competitionSignup, /CompetitionRegistrationForm/);
-  assert.match(competitionSignup, /Need a team first/);
-  assert.match(competitionSignup, /start-a-team/);
-  assert.match(registrationForm, /Register your team&apos;s interest/);
+  assert.doesNotMatch([home, siteChrome, competitionSignup].join("\n"), /start-a-team/);
+  assert.match(legacyTeamPage, /httpEquiv="refresh"/);
+  assert.match(legacyTeamPage, /competition-signup/);
+  assert.match(registrationForm, /Register your team/);
   assert.match(sponsors, /Where sponsorship funding goes/);
   assert.match(sponsors, /Competition development/);
   assert.doesNotMatch(sponsors, /Student awards/);
@@ -91,7 +97,6 @@ test("removes the banned copy and default arrow glyphs", async () => {
     "../app/start-a-team/page.tsx",
     "../app/sponsors/page.tsx",
     "../app/components/SiteChrome.tsx",
-    "../app/components/LeadForm.tsx",
     "../app/components/CompetitionRegistrationForm.tsx",
   ];
   const source = (
@@ -100,17 +105,16 @@ test("removes the banned copy and default arrow glyphs", async () => {
     )
   ).join("\n");
 
-  assert.doesNotMatch(source, /challenge/i);
+  assert.doesNotMatch(source.replaceAll("Domino Challenge", ""), /challenge/i);
   assert.doesNotMatch(source, /[—→↗↓✓×]/);
   assert.doesNotMatch(source, /The future needs a team|Why not yours|proving ground/i);
   assert.doesNotMatch(source, /university-exclusive|May 15, 2027|10:00 AM to 5:00 PM/i);
 });
 
 test("includes a GitHub Pages deployment and hosted form delivery", async () => {
-  const [workflow, nextConfig, leadForm, registrationForm] = await Promise.all([
+  const [workflow, nextConfig, registrationForm] = await Promise.all([
     readFile(new URL("../.github/workflows/deploy-pages.yml", import.meta.url), "utf8"),
     readFile(new URL("../next.config.ts", import.meta.url), "utf8"),
-    readFile(new URL("../app/components/LeadForm.tsx", import.meta.url), "utf8"),
     readFile(
       new URL("../app/components/CompetitionRegistrationForm.tsx", import.meta.url),
       "utf8",
@@ -126,6 +130,5 @@ test("includes a GitHub Pages deployment and hosted form delivery", async () => 
   assert.match(nextConfig, /output: "export"/);
   assert.match(nextConfig, /basePath: pagesBasePath/);
   assert.doesNotMatch(nextConfig, /\/CHRC-Website/);
-  assert.match(leadForm, /NEXT_PUBLIC_FORM_ENDPOINT/);
   assert.match(registrationForm, /NEXT_PUBLIC_FORM_ENDPOINT/);
 });

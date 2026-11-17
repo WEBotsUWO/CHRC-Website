@@ -1,10 +1,12 @@
 import Link from "next/link";
 import { publicAsset } from "../site";
+import { MobileMenu } from "./MobileMenu";
 
 const nav = [
   { href: "/competition", label: "CHRC 2027" },
   { href: "/#roadmap", label: "Roadmap" },
   { href: "/sponsors", label: "Sponsors" },
+  { href: "/competition#faq", label: "FAQ" },
   { href: "/#about", label: "About" },
 ];
 
@@ -35,29 +37,19 @@ export function SiteHeader() {
         <div className="header-actions">
           <Link
             href="/competition-signup"
-            className="button button-quiet header-signup"
+            className="button button-primary"
           >
             Sign up
           </Link>
-          <Link href="/start-a-team" className="button button-primary header-cta">
-            Start a team
-          </Link>
         </div>
-        <details className="mobile-menu">
-          <summary aria-label="Open navigation">
-            <span />
-            <span />
-          </summary>
-          <nav aria-label="Mobile navigation">
-            {nav.map((item) => (
-              <Link href={item.href} key={item.href}>
-                {item.label}
-              </Link>
-            ))}
-            <Link href="/competition-signup">CHRC 2027 - sign up</Link>
-            <Link href="/start-a-team">Start a team</Link>
-          </nav>
-        </details>
+        <MobileMenu>
+          {nav.map((item) => (
+            <Link href={item.href} key={item.href}>
+              {item.label}
+            </Link>
+          ))}
+          <Link href="/competition-signup">Sign up</Link>
+        </MobileMenu>
       </div>
     </header>
   );
@@ -78,7 +70,7 @@ export function SiteFooter() {
             />
             <span className="brand-type">
               <strong>CHRC</strong>
-              <small>University and college teams. Humanoid systems.</small>
+              <small>Canadian Humanoid Robotics Competition</small>
             </span>
           </Link>
           <p className="footer-note">
@@ -89,9 +81,11 @@ export function SiteFooter() {
         <div className="footer-links">
           <p>Explore</p>
           <Link href="/competition">CHRC 2027</Link>
+          <Link href="/#competitors">Competitors</Link>
+          <Link href="/#location">Event location</Link>
           <Link href="/#roadmap">2030 Roadmap</Link>
-          <Link href="/start-a-team">Start a team</Link>
-          <Link href="/competition-signup">Competition sign up</Link>
+          <Link href="/competition-signup">Competition registration</Link>
+          <Link href="/competition#faq">FAQ</Link>
           <Link href="/sponsors">Sponsors</Link>
         </div>
         <div className="footer-links">
