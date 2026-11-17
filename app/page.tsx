@@ -58,7 +58,7 @@ export default function Home() {
         <div className="container hero-content">
           <div className="hero-copy">
             <CompetitionEventDetails />
-            <h1>
+            <h1 aria-label="Canadian Humanoid Robotics Competition">
               <span className="hero-title-word">
                 <span className="hero-title-initial">C</span>anadian
               </span>{" "}

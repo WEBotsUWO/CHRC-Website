@@ -30,7 +30,7 @@ test("ships the revised CHRC conversion experience", async () => {
     readFile(new URL("../app/sponsors/page.tsx", import.meta.url), "utf8"),
   ]);
 
-  const homeHeading = home.match(/<h1>(.*?)<\/h1>/s)?.[1] ?? "";
+  const homeHeading = home.match(/<h1\b[^>]*>(.*?)<\/h1>/s)?.[1] ?? "";
   const homeHeadingText = homeHeading
     .replace(/<[^>]+>/g, "")
     .replaceAll('{" "}', " ")
