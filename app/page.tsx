@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { CompetitionEventDetails } from "./components/CompetitionEventDetails";
 import { ConfirmedCompetitors } from "./components/ConfirmedCompetitors";
-import { competition2027, publicAsset, showConfirmedCompetitors, teamAvailability } from "./site";
+import { competition2027, publicAsset, showConfirmedCompetitors } from "./site";
 
 const venueMapUrl =
   "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11671.068580472293!2d-81.29400164458008!3d43.0042375!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882eef7ac56ac837%3A0x9095bb6de8916048!2sAmit%20Chakma%20Engineering%20Building!5e0!3m2!1sen!2sca!4v1793932180350!5m2!1sen!2sca";
@@ -44,8 +44,8 @@ function HomeRegistration() {
       >
         Register now
       </Link>
-      <p className="registration-availability">
-        {teamAvailability()} · Register by {competition2027.registrationDeadline}
+      <p className="registration-deadline">
+        Register by {competition2027.registrationDeadline}
       </p>
     </div>
   );

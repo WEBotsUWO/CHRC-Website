@@ -19,9 +19,9 @@ export function CompetitionFaq() {
             <summary>How do I register and pay?</summary>
             <p>
               Submit the <Link href="/competition-signup">registration form</Link>
-              {" "}by {competition2027.registrationDeadline} and pay the required
-              {" "}{competition2027.registrationFee} per team through the{" "}
-              <a href={competition2027.registrationFeeUrl}>Western Engineering store</a>.
+              {" "}by {competition2027.registrationDeadline}. CHRC will email
+              your primary contact with instructions for paying the required
+              registration fee.
             </p>
           </details>
           <details>

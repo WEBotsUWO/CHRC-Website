@@ -3,7 +3,7 @@ import Link from "next/link";
 import { CompetitionEventDetails } from "../components/CompetitionEventDetails";
 import { CompetitionFaq } from "../components/CompetitionFaq";
 import { ConfirmedCompetitors } from "../components/ConfirmedCompetitors";
-import { competition2027, publicAsset, showConfirmedCompetitors, teamAvailability } from "../site";
+import { competition2027, publicAsset, showConfirmedCompetitors } from "../site";
 
 export const metadata: Metadata = {
   title: "CHRC 2027 Humanoid Hand Competition",
@@ -23,9 +23,7 @@ export default function CompetitionPage() {
             open-source arm using build files from CHRC. In each event, a team
             member controls the robot in real time by moving their own arm and hand.
           </p>
-          <p className="registration-availability">
-            {teamAvailability()} · {competition2027.registrationFee} registration fee
-            <br />
+          <p className="registration-deadline">
             Register by {competition2027.registrationDeadline}
           </p>
           <div className="hero-actions">

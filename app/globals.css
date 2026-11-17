@@ -429,13 +429,13 @@ textarea:focus-visible {
   margin-top: 24px;
 }
 
-.registration-availability {
+.registration-deadline {
   color: var(--red);
   font-size: 0.88rem;
   font-weight: 720;
 }
 
-.final-cta .registration-availability {
+.final-cta .registration-deadline {
   color: #fff;
 }
 
@@ -1494,19 +1494,10 @@ textarea:focus-visible {
 }
 
 .registration-payment h3 + p {
-  margin: 6px 0 14px;
+  margin: 6px 0 0;
   color: var(--muted);
   font-size: 0.94rem;
   line-height: 1.65;
-}
-
-.registration-payment .button {
-  min-height: 44px;
-}
-
-.registration-payment-link {
-  color: var(--red);
-  text-decoration: underline;
 }
 
 .form-heading h2,
@@ -2182,13 +2173,13 @@ textarea:focus-visible {
   color: rgba(255, 255, 255, 0.78);
 }
 
-.competition-hero-content > p.registration-availability {
+.competition-hero-content > p.registration-deadline {
   margin-top: 18px;
   color: var(--red);
   font-size: 0.92rem;
 }
 
-.competition-hero-content > .registration-availability + .hero-actions {
+.competition-hero-content > .registration-deadline + .hero-actions {
   margin-top: 14px;
 }
 

@@ -1,7 +1,6 @@
 "use client";
 
 import { FormEvent, useState } from "react";
-import { competition2027, teamAvailability } from "../site";
 
 const hostedFormEndpoint = process.env.NEXT_PUBLIC_FORM_ENDPOINT;
 
@@ -83,15 +82,8 @@ export function CompetitionRegistrationForm() {
         <p className="section-label">Registration received</p>
         <h2>Thanks for registering for CHRC 2027.</h2>
         <p>
-          The CHRC team will contact your primary representative with the next
-          registration steps and competition package updates.
-        </p>
-        <p>
-          If you still need to pay,{" "}
-          <a className="registration-payment-link" href={competition2027.registrationFeeUrl}>
-            pay the {competition2027.registrationFee} registration fee
-          </a>
-          {" "}through the Western Engineering store.
+          The CHRC team will email your primary contact with payment instructions
+          and updates on the competition package.
         </p>
         <button
           type="button"
@@ -204,22 +196,11 @@ export function CompetitionRegistrationForm() {
       </label>
 
       <section className="registration-payment" aria-labelledby="registration-payment-heading">
-        <p className="registration-availability">{teamAvailability()}</p>
-        <h3 id="registration-payment-heading">
-          {competition2027.registrationFee} registration fee
-        </h3>
+        <h3 id="registration-payment-heading">Registration fee</h3>
         <p>
-          To complete registration, submit this form and pay the required fee
-          through the Western Engineering store.
+          A registration fee is required. The CHRC team will email your primary
+          contact with payment instructions after you submit this form.
         </p>
-        <a
-          href={competition2027.registrationFeeUrl}
-          className="button button-quiet"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Pay registration fee
-        </a>
       </section>
 
       <label className="honeypot" aria-hidden="true">

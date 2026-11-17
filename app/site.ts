@@ -6,9 +6,6 @@ export const competition2027 = {
   teamCapacity: 5,
   registrationDeadline: "December 20, 2026",
   maxBuildBudget: "$1,500 CAD",
-  registrationFee: "$50 CAD",
-  registrationFeeUrl:
-    "https://estore.eng.uwo.ca/products/chrc---canadian-humanoid-robotics-competition",
   hours: "9:00 AM to 5:00 PM ET",
   hoursNote: "Subject to change",
 };
@@ -35,9 +32,3 @@ export const remainingTeamSpots = Math.max(
   0,
   competition2027.teamCapacity - confirmedCompetitors.length,
 );
-
-export function teamAvailability() {
-  if (remainingTeamSpots === 0) return "All team spots are filled";
-  const label = remainingTeamSpots === 1 ? "team spot" : "team spots";
-  return remainingTeamSpots + " " + label + " remaining";
-}
