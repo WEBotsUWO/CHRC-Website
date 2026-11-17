@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { publicAsset } from "../site";
+import { publicAsset, showConfirmedCompetitors } from "../site";
 import { MobileMenu } from "./MobileMenu";
 
 const nav = [
@@ -81,7 +81,9 @@ export function SiteFooter() {
         <div className="footer-links">
           <p>Explore</p>
           <Link href="/competition">CHRC 2027</Link>
-          <Link href="/#competitors">Competitors</Link>
+          {showConfirmedCompetitors && (
+            <Link href="/#competitors">Competitors</Link>
+          )}
           <Link href="/#location">Event location</Link>
           <Link href="/#roadmap">2030 Roadmap</Link>
           <Link href="/competition-signup">Competition registration</Link>

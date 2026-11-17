@@ -21,6 +21,8 @@ export function publicAsset(path: string) {
   return `${siteBasePath}${path.startsWith("/") ? path : `/${path}`}`;
 }
 
+export const showConfirmedCompetitors = false;
+
 export const confirmedCompetitors: { name: string; institution: string; logo?: string }[] = [
   {
     name: "WE Bots",

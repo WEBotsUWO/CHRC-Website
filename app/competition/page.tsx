@@ -3,7 +3,7 @@ import Link from "next/link";
 import { CompetitionEventDetails } from "../components/CompetitionEventDetails";
 import { CompetitionFaq } from "../components/CompetitionFaq";
 import { ConfirmedCompetitors } from "../components/ConfirmedCompetitors";
-import { competition2027, publicAsset, teamAvailability } from "../site";
+import { competition2027, publicAsset, showConfirmedCompetitors, teamAvailability } from "../site";
 
 export const metadata: Metadata = {
   title: "CHRC 2027 Humanoid Hand Competition",
@@ -74,11 +74,13 @@ export default function CompetitionPage() {
         </div>
       </section>
 
-      <div className="section event-community">
-        <div className="container">
-          <ConfirmedCompetitors showSlots />
+      {showConfirmedCompetitors && (
+        <div className="section event-community">
+          <div className="container">
+            <ConfirmedCompetitors showSlots />
+          </div>
         </div>
-      </div>
+      )}
 
       <CompetitionFaq />
 
